@@ -1,0 +1,12 @@
+<% if(error.length> 0) {%>
+    <script>
+        iziToast.settings({
+            position: 'topRight',
+            rtl: true
+        });
+        iziToast.error({
+            title: 'هشدار',
+            message: '<%= error %>',
+        });
+    </script>
+    <%}%>

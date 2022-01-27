@@ -1,0 +1,111 @@
+<!-- includes -->
+<%- include("../../notify/message.ejs") %>
+    <%- include("../../notify/error.ejs") %>
+        <!-- includes -->
+        <div class="col-xs-12 col-md-12">
+            <div class="widget">
+                <div class="widget-header bordered-bottom bordered-yellow">
+                    <span class="widget-caption">کاربران</span>
+                    <div class="widget-buttons">
+                        <a href="#" data-toggle="maximize">
+                            <i class="fa fa-expand"></i>
+                        </a>
+                        <a href="#" data-toggle="collapse">
+                            <i class="fa fa-minus"></i>
+                        </a>
+                        <a href="#" data-toggle="dispose">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="widget-body no-padding">
+                    <table class="table table-bordered table-hover table-striped" id="searchable">
+                        <thead class="bordered-darkorange">
+                            <tr role="row">
+                                <th>نام </th>
+                                <th>پست الکترونیک</th>
+                                <th>شماره همراه</th>
+                                <th>نوع کاربری</th>
+                                <th>قابلیت دسترسی</th>
+                            </tr>
+                        </thead>
+
+                        <tfoot>
+                            <tr>
+                                <th rowspan="1" colspan="1"><input type="text" name="search_engine"
+                                        placeholder="نام کاربر" class="form-control input-sm"></th>
+                                <th rowspan="1" colspan="1"><input type="text" name="search_browser"
+                                        placeholder="پست الکترونیک" class="form-control input-sm"></th>
+                                <th rowspan="1" colspan="1"><input type="text" name="search_platform"
+                                        placeholder="شماره همراه" class="form-control input-sm"></th>
+                                <th rowspan="1" colspan="1"><input type="text" name="search_version"
+                                        placeholder="مدیر / کاربر" class="form-control input-sm"></th>
+                                <th rowspan="1" colspan="1"><input type="text" name="search_grade"
+                                        placeholder="وضعیت دسترسی" class="form-control input-sm"></th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <% for (let user of users ) {%>
+                                <tr>
+                                    <td class=" sorting_1">
+                                        <%= user.fullname %>
+                                            <a href=""><span class="badge">مشاهده پست ها</span></a>
+                                    </td>
+                                    <td class=" ">
+                                        <%= user.email %>
+                                    </td>
+                                    <td class=" ">
+                                        <%= user.mobile %>
+                                            <% if(user.isMobileActive) {%>
+                                                <a href=""><span class="badge">فعال</span></a>
+                                                <%}else {%>
+                                                    <a href=""><span class="badge">غیر فعال</span></a>
+                                                    <%}%>
+                                    </td>
+                                    <td class="center ">
+                                        <% if (user.isAdmin==="User" ) {%>
+                                            کاربر
+                                            <a href="/admin/isAdmin/<%= user._id %>"><span class="badge">تغییر
+                                                    وضعیت</span></a>
+                                            <%}else {%>
+                                                مدیر
+                                                <a href="/admin/isAdmin/<%= user._id %>"><span class="badge">تغییر
+                                                        وضعیت</span></a>
+                                                <%}%>
+                                    </td>
+                                    <td class="center ">
+                                        <% if (user.isBloocked ) {%>
+                                            <a class="btn btn-sm btn-danger" href="/admin/isBloock/<%= user.id %>">
+                                                مسدود
+                                                <%}else {%>
+                                                    <a class="btn btn-sm btn-success"
+                                                        href="/admin/isBloock/<%= user.id %>">
+                                                        مجاز
+                                                    </a>
+                                                    <%}%>
+                                    </td>
+                                </tr>
+                                <%}%>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+        <!-- /Page Body -->
+        </div>
+        <!-- /Page Content -->
+
+        <!--Page Related Scripts-->
+        <script src="/admin/assets/js/datatable/jquery.dataTables.min.js"></script>
+        <script src="/admin/assets/js/datatable/ZeroClipboard.js"></script>
+        <script src="/admin/assets/js/datatable/dataTables.tableTools.min.js"></script>
+        <script src="/admin/assets/js/datatable/dataTables.bootstrap.min.js"></script>
+        <script src="/admin/assets/js/datatable/datatables-init.js"></script>
+        <script>
+            // InitiateSimpleDataTable.init();
+            // InitiateEditableDataTable.init();
+            // InitiateExpandableDataTable.init();
+            InitiateSearchableDataTable.init();
+        </script>

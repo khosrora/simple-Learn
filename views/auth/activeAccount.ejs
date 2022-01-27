@@ -1,0 +1,58 @@
+<!-- includes -->
+<%- include("../notify/message.ejs") %>
+    <%- include("../notify/error.ejs") %>
+        <!-- includes -->
+
+        <div class="register-container animated fadeInDown" dir="rtl">
+            <form class="registerbox bg-white" action="/admin/activeAccount" method="post" id="activeAccount">
+                <div class="registerbox-title" style="text-align: center;">فعال سازی</div>
+                <div class="registerbox-caption ">
+                    <%- include("../notify/errors.ejs") %>
+                </div>
+                <div class="registerbox-textbox">
+                    <input type="text" class="form-control" placeholder="شماره تماس" name="mobile"
+                        value="<%= formData ? formData.mobile : "" %>">
+                </div>
+                <div class="registerbox-textbox">
+                    <input type="text" class="form-control" placeholder="کد ارسال شده" id="code" name="code"
+                        value="<%= formData ? formData.code : "" %>">
+                </div>
+                <div class="registerbox-submit">
+                    <button class="btn btn-primary pull-right"> فعالسازی </button>
+                    <a href="/admin/register" class="text-center" style="margin-right: 2rem;">من ثبت نام نکرده ام</a>
+                    <br>
+                    <a href="/admin/sendCode" class="text-center" style="margin-right: 2rem;">دریافت پیام فعال سازی</a>
+                </div>
+            </form>
+        </div>
+
+
+        <script>
+            jQuery.extend(jQuery.validator.messages, {
+                required: "وارد کردن این فیلد ضروری است",
+                email: "پست الکترونیک درست وارد نشده است",
+                number: "لطفا بصورت عدد وارد کنید",
+                maxlength: jQuery.validator.format("کلمه عبور خود را بیشتر از 30 کاراکتر انتخاب نکنید"),
+            });
+
+            $(document).ready(function () {
+                $.validator.setDefaults({
+                    highlight: function (element) {
+                        $(element)
+                            .closest(".form-group")
+                            .addClass("has-error")
+                    }
+                });
+                $('#activeAccount').validate(
+                    {
+                        rules: {
+                            mobile: {
+                                required: true,
+                            },
+                            code: {
+                                required: true,
+                            },
+                        }
+                    });
+            });
+        </script>

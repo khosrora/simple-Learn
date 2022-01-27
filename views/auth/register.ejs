@@ -1,0 +1,71 @@
+<!-- includes -->
+<%- include("../notify/error.ejs") %>
+    <!-- includes -->
+    <div class="register-container animated fadeInDown" dir="rtl">
+        <form class="registerbox bg-white" action="/admin/register" method="post" id="registerForm" dir>
+            <div class="registerbox-title" style="text-align: center;">ثبت نام</div>
+
+            <div class="registerbox-textbox">
+                <input type="text" class="form-control" placeholder="نام و نام خانوادگی" name="fullname"
+                    value="<%= formData ? formData.fullname : "" %>">
+            </div>
+            <div class="registerbox-textbox">
+                <input type="email" class="form-control" placeholder="ایمیل" name="email"
+                    value="<%= formData ? formData.email : "" %>">
+            </div>
+            <div class="registerbox-textbox">
+                <input type="text" class="form-control" placeholder="شماره تماس" name="mobile"
+                    value="<%= formData ? formData.mobile : "" %>">
+            </div>
+            <div class="registerbox-textbox">
+                <input type="password" class="form-control" placeholder="رمز عبور" name="password">
+            </div>
+            <div class="registerbox-submit">
+                <button class="btn btn-primary pull-right">ثبت نام</button>
+                <br>
+                <a href="/admin/login" style="margin-right: 2rem;">من قبلا ثبت نام کرده ام</a>
+            </div>
+        </form>
+    </div>
+
+
+
+    <script>
+        jQuery.extend(jQuery.validator.messages, {
+            required: "وارد کردن این فیلد ضروری است",
+            email: "پست الکترونیک درست وارد نشده است",
+            number: "لطفا بصورت عدد وارد کنید",
+            maxlength: jQuery.validator.format("کلمه عبور خود را بیشتر از 30 کاراکتر انتخاب نکنید"),
+            minlength: jQuery.validator.format(".کلمه عبور خود را کمتر از 8 کاراکتر انتخاب نکنید"),
+        });
+
+        $(document).ready(function () {
+            $.validator.setDefaults({
+                highlight: function (element) {
+                    $(element)
+                        .closest(".form-group")
+                        .addClass("has-error")
+                }
+            });
+
+            $('#registerForm').validate(
+                {
+                    rules: {
+                        fullname: {
+                            required: true,
+                        },
+                        email: {
+                            required: true,
+                            email: true
+                        },
+                        mobile: {
+                            required: true,
+                        },
+                        password: {
+                            required: true,
+                            minlength: 8
+                        }
+                    }
+                });
+        });
+    </script>

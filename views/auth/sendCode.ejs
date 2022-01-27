@@ -1,0 +1,48 @@
+<!-- includes -->
+    <%- include("../notify/error.ejs") %>
+        <!-- includes -->
+
+        <div class="register-container animated fadeInDown" dir="rtl">
+            <form class="registerbox bg-white" action="/admin/sendCode" method="post" id="sendCode">
+                <div class="registerbox-title" style="text-align: center;">ارسال کد</div>
+                <div class="registerbox-caption ">
+                    <%- include("../notify/errors.ejs") %>
+                </div>
+                <div class="registerbox-textbox">
+                    <input type="text" class="form-control" placeholder="شماره تماس" name="mobile">
+                </div>
+                <div class="registerbox-submit">
+                    <button class="btn btn-primary pull-right"> ارسال کد </button>
+                    <br>
+                    <a href="/admin/register" class="text-center" style="margin-right: 2rem;">من ثبت نام نکرده ام</a>
+                </div>
+            </form>
+        </div>
+
+
+        <script>
+            jQuery.extend(jQuery.validator.messages, {
+                required: "وارد کردن این فیلد ضروری است",
+                email: "پست الکترونیک درست وارد نشده است",
+                number: "لطفا بصورت عدد وارد کنید",
+                maxlength: jQuery.validator.format("کلمه عبور خود را بیشتر از 30 کاراکتر انتخاب نکنید"),
+            });
+
+            $(document).ready(function () {
+                $.validator.setDefaults({
+                    highlight: function (element) {
+                        $(element)
+                            .closest(".form-group")
+                            .addClass("has-error")
+                    }
+                });
+                $('#sendCode').validate(
+                    {
+                        rules: {
+                            mobile: {
+                                required: true,
+                            }
+                        }
+                    });
+            });
+        </script>

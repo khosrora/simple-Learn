@@ -1,0 +1,67 @@
+<!-- includes -->
+<%- include("../notify/message.ejs") %>
+    <%- include("../notify/error.ejs") %>
+        <!-- includes -->
+        <div class="register-container animated fadeInDown" dir="rtl">
+            <form class="registerbox bg-white" action="/admin/login" method="post" id="loginForm">
+                <div class="registerbox-title" style="text-align: center;">ورود به پنل</div>
+                <div class="registerbox-caption ">
+                    <%- include("../notify/errors.ejs") %>
+                </div>
+                <div class="registerbox-textbox">
+                    <input type="email" class="form-control" placeholder="ایمیل" name="email">
+                </div>
+                <div class="registerbox-textbox">
+                    <input type="password" class="form-control" placeholder="رمز عبور" name="password">
+                </div>
+                <div class="registerbox-textbox no-padding-bottom">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" class="colored-primary" name="remember">
+                            <span class="text darkgray">مرا به خاطر بسپار</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="registerbox-submit">
+                    <button type="submit" class="btn btn-primary pull-right"> ورود </button>
+                    <a href="/admin/login" class="text-center" style="margin-right: 2rem;">من هنوز ثبت نام نکردم !!!</a>
+                    <br>
+                    <a href="/admin/activeAccount" class="text-center" style="margin-right: 2rem;">فعال سازی اکانت
+                        !!!</a>
+                </div>
+            </form>
+        </div>
+
+        <script>
+            jQuery.extend(jQuery.validator.messages, {
+                required: "وارد کردن این فیلد ضروری است",
+                email: "پست الکترونیک درست وارد نشده است",
+                number: "لطفا بصورت عدد وارد کنید",
+                maxlength: jQuery.validator.format("کلمه عبور خود را بیشتر از 30 کاراکتر انتخاب نکنید"),
+                minlength: jQuery.validator.format(".کلمه عبور خود را کمتر از 8 کاراکتر انتخاب نکنید"),
+            });
+
+            $(document).ready(function () {
+                $.validator.setDefaults({
+                    highlight: function (element) {
+                        $(element)
+                            .closest(".form-group")
+                            .addClass("has-error")
+                    }
+                });
+
+                $('#loginForm').validate(
+                    {
+                        rules: {
+                            email: {
+                                required: true,
+                                email: true
+                            },
+                            password: {
+                                required: true,
+                                minlength: 8
+                            }
+                        }
+                    });
+            });
+        </script>

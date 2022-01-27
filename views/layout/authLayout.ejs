@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>
+        <%= title %>
+    </title>
+
+    <meta name="description" content="register page" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="/admin/assets/img/favicon.png" type="image/x-icon">
+
+    <!--Basic Styles-->
+    <link href="/admin/assets/css/fonts.css" rel="stylesheet" />
+    <link href="/admin/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link id="bootstrap-rtl-link" href="" rel="stylesheet" />
+    <link href="/admin/assets/css/font-awesome.min.css" rel="stylesheet" />
+
+    <!--Fonts-->
+    <link
+        href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300"
+        rel="stylesheet" type="text/css">
+
+
+    <!--Beyond styles-->
+    <link id="beyond-link" href="/admin/assets/css/beyond.min.css" rel="stylesheet" />
+    <link href="/admin/assets/css/demo.min.css" rel="stylesheet" />
+    <link href="/admin/assets/css/animate.min.css" rel="stylesheet" />
+    <link href="/admin/assets/css/iziToast.css" rel="stylesheet" />
+    <link id="skin-link" href="" rel="stylesheet" type="text/css" />
+
+    <!--Skin Script: Place this script in head to load scripts for skins and rtl support-->
+    <script src="/admin/assets/js/skins.min.js"></script>
+
+    <style>
+        label {
+            color: red !important;
+        }
+    </style>
+</head>
+<!--Head Ends-->
+<!--Body-->
+
+
+<body>
+
+    <%-body %>
+
+        <!--Basic Scripts-->
+        <script src="/admin/assets/js/jquery.min.js"></script>
+        <script src="/admin/assets/js/bootstrap.min.js"></script>
+        <script src="/admin/assets/js/slimscroll/jquery.slimscroll.min.js"></script>
+        <script src="/admin/assets/js/validation.js"></script>
+        <script src="/admin/assets/js/iziToast.min.js"></script>
+
+        <!--Beyond Scripts-->
+        <script src="/admin/assets/js/beyond.min.js"></script>
+        <%- script %>
+</body>
+<!--Body Ends-->
+
+</html>

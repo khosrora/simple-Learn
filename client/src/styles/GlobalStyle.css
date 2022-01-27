@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.body {
+    background-color: var(--white);
+}
+
+input::placeholder {
+    opacity: .5;
+}
+
+:root {
+    --background: #45526C;
+    --green: #00ADB5;
+    --red: #DD4A48;
+    --gray: #393E46;
+    --white: #EEEEEE;
+    --dark: #222831;
+    --orange: #FF6B6B;
+    --yellow : #FFE162;
+}
+
+a {
+    color: var(--dark);
+    text-decoration: none;
+}
+
+/* ! btn */
+.btn-white {
+    padding: .5rem;
+    transition: all .3s ease-in-out;
+    border-radius: 3px;
+}
+
+.btn-white:hover {
+    background-color: var(--dark);
+    color: var(--white);
+    transition: all .3s ease-in-out;
+}
+
+.btn-red {
+    padding: .5rem;
+    transition: all .3s ease-in-out;
+    border-radius: 3px;
+}
+
+.btn-red:hover {
+    background-color: var(--red);
+    color: var(--white);
+    transition: all .3s ease-in-out;
+}
+
+.btn-dark {
+    background-color: var(--dark);
+    padding: .5rem;
+    color: var(--white) !important;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ! btn */
+
+/* ! loader */
+@import url("./loading.css");
+/* ! auth page */
+@import url("./authPages.css");
+/* ! navBar */
+@import url("./navBar.css");
+/* ! navBar */
+@import url("./titleHeader.css");

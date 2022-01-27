@@ -1,0 +1,144 @@
+.auth-page {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.auth-page .detail {
+    width: 40%;
+    height: 100vh;
+    background-color: var(--dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-page .detail div {
+    text-align: center;
+    width: 70%;
+}
+
+.auth-page .detail div h1 {
+    color: var(--white);
+}
+
+.auth-page .detail div p {
+    color: var(--white);
+    text-align: justify;
+}
+
+.auth-page .detail div button {
+    border: 1px solid var(--white);
+    padding: .5rem 3rem;
+    border-radius: 3px;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+.auth-page .form {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.auth-page .form .box-form {
+    width: 30%;
+    border: 1px solid var(--dark);
+    padding: 2rem;
+    border-radius: 3px;
+}
+
+.auth-page .form div p span {
+    font-size: 2rem;
+    color: var(--red);
+    margin-right: .5rem;
+}
+
+.auth-page .form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-page .form form input {
+    margin-top: 2rem;
+    border: none;
+    background: none;
+    border: 1px solid var(--gray);
+    border-radius: 3px;
+    padding: .3rem 1rem;
+}
+
+.auth-page .form form button {
+    border: 1px solid var(--dark);
+    padding: .5rem 3rem;
+    border-radius: 3px;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: all .3s ease-in;
+}
+
+.auth-page .form form button:hover {
+    background-color: var(--dark);
+    color: var(--white);
+    transition: all .3s ease-in;
+}
+
+.auth-page .form form div {
+    color: var(--red);
+    width: 100%;
+    text-align: right;
+}
+
+.auth-page .form form button {
+    margin-top: 2rem;
+}
+
+.auth-page .form form p {
+    text-align: right;
+    opacity: .8;
+    margin-top: 5px;
+    cursor: pointer;
+    font-size: .8rem;
+}
+
+.auth-page .form form p a {
+    text-decoration: none;
+    color: var(--dark);
+}
+
+/* ! responsive */
+
+@media only screen and (max-width: 1025px) {
+    .auth-page .form .box-form {
+        width: 70%;
+    }
+
+    .navMobile {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .auth-page .form {
+        width: 100%;
+        height: 100vh;
+        margin: auto;
+    }
+
+    .auth-page .detail {
+        display: none !important;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .auth-page .form {
+        width: 100%;
+        height: 100vh;
+        margin: auto;
+    }
+
+}
