@@ -67,6 +67,7 @@ app.use(express.static(path.join(__dirname, "public")))
 app.use("/admin", require('./app/src/web/users/userRouter'))
 app.use("/admin", require('./app/src/web/dashboard/home/dashboardRouter'))
 app.use("/admin", require('./app/src/web/dashboard/user/userRouter'))
+app.use("/admin", require('./app/src/web/dashboard/categories/categoryRouter'))
 
 // * Routes Api
 app.use("/api", require('./app/src/api/users/userRouterAPI'))

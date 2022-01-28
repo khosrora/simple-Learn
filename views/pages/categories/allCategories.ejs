@@ -1,0 +1,86 @@
+<!--includes -->
+<%- include("../../notify/message.ejs") %>
+    <%- include("../../notify/error.ejs") %>
+        <!--includes -->
+        <div class="col-xs-12 col-md-12">
+            <div class="widget">
+                <div class="widget-header bordered-bottom bordered-yellow">
+                    <span class="widget-caption">کاربران</span>
+                    <div class="widget-buttons">
+                        <a href="#" data-toggle="maximize">
+                            <i class="fa fa-expand"></i>
+                        </a>
+                        <a href="#" data-toggle="collapse">
+                            <i class="fa fa-minus"></i>
+                        </a>
+                        <a href="#" data-toggle="dispose">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="widget-body no-padding">
+                    <table class="table table-bordered table-hover table-striped" id="searchable">
+                        <thead class="bordered-darkorange">
+                            <tr role="row">
+                                <th>نام </th>
+                                <th>توضیحات</th>
+                                <th>وضعیت</th>
+                                <th>
+                                    <a class="btn btn-success" href="/admin/createCategory">دسته بندی جدید</a>
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tfoot>
+                            <tr>
+                                <th rowspan="1" colspan="1"><input type="text" name="search_engine"
+                                        placeholder="نام دسته بندی" class="form-control input-sm"></th>
+                                <th></th>
+                                <th rowspan="1" colspan="1"><input type="text" name="search_platform"
+                                        placeholder="نوع دسته بندی" class="form-control input-sm"></th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <% for (let category of categories ) {%>
+                                <tr>
+                                    <td class=" sorting_1">
+                                        <%= category.name %>
+                                        <a class="badge badge-secondary" href="/admin/editCategory/<%= category._id %>">ویرایش</a>
+                                    </td>
+                                    <td class="">
+                                        <%- category.desc %>
+                                    </td>
+                                    <td class=" ">
+                                        <% if(category.parent===null) {%>
+                                            <p>دسته اصلی</p>
+                                            <%}%>
+                                    </td>
+                                    <td>
+                                        <a href="/admin/deleteCategroy/<%= category.id %>"
+                                            class="btn-sm btn-danger">حذف</a>
+                                    </td>
+                                </tr>
+                                <%}%>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+        <!-- /Page Body -->
+        </div>
+        <!-- /Page Content -->
+
+        <!--Page Related Scripts-->
+        <script src="/admin/assets/js/datatable/jquery.dataTables.min.js"></script>
+        <script src="/admin/assets/js/datatable/ZeroClipboard.js"></script>
+        <script src="/admin/assets/js/datatable/dataTables.tableTools.min.js"></script>
+        <script src="/admin/assets/js/datatable/dataTables.bootstrap.min.js"></script>
+        <script src="/admin/assets/js/datatable/datatables-init.js"></script>
+        <script>
+            // InitiateSimpleDataTable.init();
+            // InitiateEditableDataTable.init();
+            // InitiateExpandableDataTable.init();
+            InitiateSearchableDataTable.init();
+        </script>

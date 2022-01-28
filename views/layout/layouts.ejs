@@ -17,7 +17,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
     <link href="/admin/assets/css/weather-icons.min.css" rel="stylesheet" />
     <link href="/admin/assets/css/iziToast.css" rel="stylesheet" />
-    
+
     <!--Fonts-->
     <style>
         @font-face {
@@ -38,10 +38,14 @@
     <link href="/admin/assets/css/typicons.min.css" rel="stylesheet" />
     <link href="/admin/assets/css/animate.min.css" rel="stylesheet" />
     <link id="skin-link" href="" rel="stylesheet" type="text/css" />
+    <link href="/admin/assets/css/iziToast.css" rel="stylesheet" />
     <!--Page Related styles-->
     <link href="/admin/assets/css/dataTables.bootstrap.css" rel="stylesheet" />
-
-    <!--Skin Script: Place this script in head to load scripts for skins and rtl support-->
+    <style>
+        label {
+            color: red !important;
+        }
+    </style>
 </head>
 <!-- /Head -->
 <!-- Body -->
@@ -108,6 +112,12 @@
         <script src="/admin/assets/js/charts/flot/jquery.flot.tooltip.js"></script>
         <script src="/admin/assets/js/charts/flot/jquery.flot.orderBars.js"></script>
         <script src="/admin/assets/js/iziToast.min.js"></script>
+        <script src="/admin/assets/js/editors/summernote/summernote.js"></script>
+        <script src="/admin/assets/js/validation.js"></script>
+        <script src="/admin/assets/js/iziToast.min.js"></script>
+        <script>
+            $('#summernote').summernote({ height: 300 });
+        </script>
         <%- script %>
 
 

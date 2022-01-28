@@ -2,21 +2,44 @@ const { Router } = require('express');
 const router = new Router();
 
 
-// ! controller
 const userController = require('./userController');
 
+// ? method ===> GET 
+// ? desc ===> register page 
+router.get("/register", userController.registerPage)
 
-// ? Method ==> GET
-// ? Desc ==>  get all users
-router.get("/allUsers", userController.getAllUsers)
+// ? method ===> POST 
+// ? desc ===> register User 
+router.post("/register", userController.registerUser)
 
-// ? Method ==> GET
-// ? Desc ==>  change is bloock
-router.get("/isBloock/:id", userController.isBloock)
+// ? method ===> GET 
+// ? desc ===> activeAccount Page 
+router.get("/activeAccount", userController.activeAccountPage)
 
-// ? Method ==> GET
-// ? Desc ==>  change is Admin
-router.get("/isAdmin/:id", userController.isAdmin)
+// ? method ===> POST 
+// ? desc ===> activeAccount User
+router.post("/activeAccount", userController.activeAccount)
+
+// ? method ===> GET 
+// ? desc ===> login
+router.get("/login", userController.getLoginPage)
+
+// ? method ===> POST 
+// ? desc ===> login User
+router.post("/login", userController.LoginUser)
+
+// ? method ===> GET 
+// ? desc ===> logOut User
+router.get("/logout", userController.logoutUser)
+
+// ? method ===> GET 
+// ? desc ===> send Code User Page
+router.get("/sendCode", userController.getSendCodePage)
+
+// ? method ===> POST 
+// ? desc ===> send Code To User 
+router.post("/sendCode", userController.sendCode)
+
 
 
 
