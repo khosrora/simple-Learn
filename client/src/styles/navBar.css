@@ -87,6 +87,7 @@
 
 .parent-categories {
     position: relative;
+    z-index: 900;
 }
 
 

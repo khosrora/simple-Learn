@@ -1,0 +1,75 @@
+.desc-header {
+    width: 100%;
+    height: 60vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.desc-header .title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--dark);
+    height: 100%;
+}
+
+.desc-header .title .details-title h1, .desc-header .title .details-title span, .desc-header .title .details-title p {
+    color: var(--white);
+}
+
+.desc-header .title .details-title {
+    width: 50%;
+    text-align: center;
+    padding: .5rem;
+    z-index: 3;
+}
+
+.desc-header .back-desc-header {
+    background-image: url("./images/blue-white-shapes-background-1.png");
+    background-size: cover;
+    position: absolute;
+    top: -16rem;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+@media only screen and (max-width: 1280px) {
+    .desc-header .back-desc-header {
+        top: -2rem !important;
+    }
+
+}
+
+.desc-header .back-desc-header {
+    background-image: url("./images/blue-white-shapes-background-1.png");
+    background-size: cover;
+    position: absolute;
+    top: -16rem;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+@media only screen and (max-width: 700px) {
+
+    .desc-header .title .details-title h1 {
+        font-size: .9rem;
+    }
+
+    .desc-header .title .details-title span {
+        font-size: .5rem;
+        opacity: .3;
+    }
+
+    .desc-header .title .details-title p {
+        font-size: .6rem;
+        text-align: justify;
+    }
+
+    .desc-header .back-desc-header {
+        top: 4rem !important;
+    }
+
+}
