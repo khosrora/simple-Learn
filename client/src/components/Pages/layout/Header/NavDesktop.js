@@ -1,8 +1,13 @@
 import { Link } from 'react-router-dom';
 import Popup from './Popup/Popup';
 import Categories from './Popup/Categories';
+import { logout } from './../../../../redux/actions/authAction';
+import { useDispatch } from 'react-redux';
 
-const NavDesktop = () => {
+
+const NavDesktop = ({ user, alert }) => {
+
+    const dispatch = useDispatch();
 
     return (
         <div className="navbar">
@@ -13,7 +18,23 @@ const NavDesktop = () => {
                         <i className='fas fa-search'></i>
                     </div>
                     <div>
-                        <Link to="/auth" className='btn-dark'><i className='fa fa-user'></i> ورود / ثبت نام</Link>
+                        {
+                            user.token
+                                ?
+                                alert.load
+                                    ?
+                                    <Link onClick={() => { dispatch(logout()) }} to="#" className='btn-dark'><i className='fa fa-sign-out-alt' style={{ marginLeft: "1rem" }}></i>
+                                    زود برگردی
+                                    </Link>
+                                    :
+                                    <Link onClick={() => { dispatch(logout()) }} to="#" className='btn-dark'><i className='fa fa-sign-out-alt' style={{ marginLeft: "1rem" }}></i>
+                                        خروج
+                                    </Link>
+                                :
+                                <Link to="/auth" className='btn-dark'><i className='fa fa-user'></i>
+                                    ورود / ثبت نام
+                                </Link>
+                        }
                     </div>
                 </div>
 

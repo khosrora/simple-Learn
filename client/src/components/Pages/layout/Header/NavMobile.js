@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Menu from './MenuMobile/Menu';
 
-const NavMobile = () => {
+const NavMobile = ({ user, alert }) => {
 
     const [menu, setMenu] = useState(false);
-    console.log(menu);
+
 
     return (
         <div>
@@ -18,7 +18,7 @@ const NavMobile = () => {
             </div>
 
             {
-                menu && <Menu setMenu={setMenu} />
+                menu && <Menu setMenu={setMenu} user={user} alert={alert} />
             }
 
         </div>

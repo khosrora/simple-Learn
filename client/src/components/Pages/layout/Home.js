@@ -1,7 +1,5 @@
 import React from 'react';
-import NavDesktop from './Header/NavDesktop';
-import NavMobile from './Header/NavMobile';
-import TitleHeader from './Header/TitleHeader';
+import Index from './Header/Index';
 
 
 import 'swiper/css';
@@ -9,9 +7,7 @@ import 'swiper/css';
 const Home = () => {
     return (
         <div>
-            <NavDesktop />
-            <NavMobile />
-            <TitleHeader />
+            <Index />
         </div>
     );
 };

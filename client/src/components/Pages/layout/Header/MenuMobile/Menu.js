@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import SubCategory from './SubCategory';
+import CategoriesMobile from './CategoriesMobile';
 import SubMenu from './SubMenu';
 
-const Menu = ({ setMenu }) => {
+const Menu = ({ setMenu, user, alert }) => {
 
     const [category, setCategory] = useState(false)
 
@@ -19,9 +19,9 @@ const Menu = ({ setMenu }) => {
             {
                 category
                     ?
-                    <SubCategory />
+                    <CategoriesMobile />
                     :
-                    <SubMenu />
+                    <SubMenu user={user} alert={alert}/>
             }
         </div>
     );

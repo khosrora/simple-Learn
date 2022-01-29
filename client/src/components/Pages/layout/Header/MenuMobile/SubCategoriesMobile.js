@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
-const SubCategories = ({ categories, id }) => {
+const SubCategoriesMobile = ({ categories, id, }) => {
+
 
     let arr = [];
     for (let i of categories) {
@@ -9,16 +10,17 @@ const SubCategories = ({ categories, id }) => {
         }
     }
 
-
     return (
-        <ul>
+
+        <ul className='menu-sub-category'>
             {
                 arr.map(i => (
                     <li key={i._id}><Link to="#">{i.name}</Link></li>
                 ))
             }
+
         </ul>
     );
 };
 
-export default SubCategories;
+export default SubCategoriesMobile;

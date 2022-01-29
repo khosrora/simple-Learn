@@ -116,3 +116,22 @@ export const changePassword = (data) => async (dispatch) => {
         errorMessage(err.response.data.message)
     }
 }
+
+export const logout = () => async (dispatch) => {
+    try {
+        dispatch({ type: GLOBALTYPES.ALERT, payload: { laod: true } });
+        localStorage.removeItem("firstLogin");
+        Cookies.remove("refreshtoken")
+        dispatch({ type: GLOBALTYPES.USER, payload: {} });
+        successMessage("شما از وب سایت خارج شدید");
+        dispatch({ type: GLOBALTYPES.ALERT, payload: {} });
+    } catch (err) {
+        dispatch({
+            type: GLOBALTYPES.ALERT,
+            payload: {
+                error: err.response.data.msg
+            }
+        })
+        errorMessage(err.response.data.message)
+    }
+}
