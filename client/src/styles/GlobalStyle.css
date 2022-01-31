@@ -3,7 +3,7 @@
     padding: 0;
 }
 
-.body {
+body {
     background-color: var(--white);
 }
 
@@ -16,10 +16,11 @@ input::placeholder {
     --green: #00ADB5;
     --red: #DD4A48;
     --gray: #393E46;
-    --white: #EEEEEE;
+    --white-gray: #EEEEEE;
+    --white: #FFFF;
     --dark: #222831;
     --orange: #FF6B6B;
-    --yellow : #FFE162;
+    --yellow: #FFE162;
 }
 
 a {
@@ -62,6 +63,22 @@ a {
     align-items: center;
 }
 
+/* carousel */
+.swiper-pagination-bullet {
+    background-color: var(--dark) !important;
+    width: 2rem !important;
+    height: .5rem !important;
+    border-radius: 4px !important;
+    transition: all .5s ease;
+}
+
+.swiper-pagination-bullet:hover {
+    width: 4rem !important;
+    transition: all .5s ease !important;
+}
+
+/* carousel */
+
 /* ! btn */
 
 /* ! loader */
@@ -72,3 +89,5 @@ a {
 @import url("./navBar.css");
 /* ! navBar */
 @import url("./titleHeader.css");
+/* ! bestCanals */
+@import url("./BestCanals.css");

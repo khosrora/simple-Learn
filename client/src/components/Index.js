@@ -6,8 +6,10 @@ import { refreshToken } from "../redux/actions/authAction";
 
 // ! pages
 import Auth from './Pages/Auth/Auth';
-import Home from './Pages/layout/Home';
+import Layout from './Pages/layout/Layout';
 import ForgotPass from './Pages/Auth/ForgotPass';
+import UserPanel from './Pages/UserPanel/UserPanel';
+import Home from './Pages/Main/Home/Home';
 
 const Index = () => {
 
@@ -22,9 +24,12 @@ const Index = () => {
     return (
         <div>
             <Switch>
-                <Route exact path="/auth" component={User.token ? Home : Auth} />
-                <Route exact path="/forgotPass" component={User.token ? Home : ForgotPass} />
-                <Route exact path="/" component={Home} />
+                <Layout>
+                    <Route exact path="/auth" component={User.token ? Layout : Auth} />
+                    <Route exact path="/forgotPass" component={User.token ? Layout : ForgotPass} />
+                    <Route exact path="/userPanel" component={UserPanel} />
+                    <Route exact path="/" component={Home} />
+                </Layout>
             </Switch>
         </div>
     );
