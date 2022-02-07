@@ -31,5 +31,9 @@
     "passport": "^0.5.2",
     "passport-local": "^1.0.0",
     "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "swagger-jsdoc": "^6.1.0",
+    "swagger-ui-express": "^4.3.0"
   }
 }

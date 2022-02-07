@@ -9,7 +9,12 @@ const Layout = ({ children, location }) => {
         <div>
             {location.pathname !== "/auth" && location.pathname !== "/forgotPass" ? <Header /> : ""}
             {children}
-            {location.pathname !== "/auth" && location.pathname !== "/forgotPass" ? <Footer /> : ""}
+            {
+                location.pathname !== "/"
+                    && location.pathname === "/contactus"
+                    && location.pathname === "/aboutUs"
+                    ? <Footer /> : ""
+            }
         </div>
     );
 };

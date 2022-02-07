@@ -11,6 +11,11 @@ input::placeholder {
     opacity: .5;
 }
 
+.container {
+    padding: 3rem 3rem 0 3rem !important;
+    width: 80%;
+}
+
 :root {
     --background: #45526C;
     --green: #00ADB5;
@@ -91,3 +96,5 @@ a {
 @import url("./titleHeader.css");
 /* ! bestCanals */
 @import url("./BestCanals.css");
+/* ! userPanel */
+@import url("./userPanel.css");

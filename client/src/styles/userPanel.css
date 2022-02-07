@@ -1,0 +1,111 @@
+.userpanel-menu {
+    display: flex;
+}
+
+.userpanel-List {
+    width: 13rem !important;
+    height: 100% !important;
+    border-left: 1px solid var(--dark);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.userpanel-List ul {
+    margin-right: .5rem;
+    list-style: none;
+}
+
+.userpanel-List ul li {
+    margin-top: 1rem;
+    position: relative;
+    padding: .5rem;
+}
+
+.userpanel-List ul li a {
+    display: block;
+}
+
+.userpanel-List ul li::before {
+    content: "";
+    width: 0;
+    height: .3rem;
+    background-color: var(--red);
+    position: absolute;
+    bottom: 0;
+    transition: all .5s ease;
+}
+
+.userpanel-List ul li:hover::before {
+    width: 100%;
+    transition: all .5s ease;
+}
+
+.box-overflow {
+    height: 100vh !important;
+    overflow-y: auto;
+}
+
+.open-menu {
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--gray);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    display: none;
+    cursor: pointer;
+}
+
+.open-menu svg {
+    color: var(--white);
+}
+
+.userpanel-List-mobile {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 70%;
+    height: 100% !important;
+    background-color: var(--white);
+    border-left: 1px solid var(--dark);
+    padding: 1rem;
+}
+
+.userpanel-List-mobile ul {
+    list-style: none;
+    height: 100vh;
+}
+
+.userpanel-List-mobile ul li {
+    margin-top: 1rem;
+    padding: .3rem;
+}
+
+.userpanel-List-mobile ul li a {
+    display: block;
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .open-menu {
+        display: flex;
+        position: fixed;
+    }
+
+    .userpanel-List {
+        display: none;
+    }
+
+    .container {
+        padding: 1rem !important;
+        width: 100% !important;
+    }
+
+    .box-overflow {
+        width: 100% !important;
+        margin: auto;
+        overflow-y: hidden;
+    }
+}

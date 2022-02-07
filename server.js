@@ -2,7 +2,6 @@ const path = require('path');
 require('dotenv').config({
     path: "./app/config/.env"
 });
-
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const cookieParser = require('cookie-parser')
@@ -10,7 +9,14 @@ const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
 const passport = require('passport');
 const session = require('express-session');
-var cors = require('cors')
+var cors = require('cors');
+
+const swaggerJsDoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
+const { swaggerOptions } = require('./app/config/swagger');
+
+
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
 
 const app = express();
 
@@ -68,10 +74,10 @@ app.use("/admin", require('./app/src/web/users/userRouter'))
 app.use("/admin", require('./app/src/web/dashboard/home/dashboardRouter'))
 app.use("/admin", require('./app/src/web/dashboard/user/userRouter'))
 app.use("/admin", require('./app/src/web/dashboard/categories/categoryRouter'))
-
 // * Routes Api
 app.use("/api", require('./app/src/api/users/userRouterAPI'))
 app.use("/api", require('./app/src/api/categories/categoryRouterAPI'))
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 const port = process.env.PORT || 4001;
 app.listen(port, () => {
