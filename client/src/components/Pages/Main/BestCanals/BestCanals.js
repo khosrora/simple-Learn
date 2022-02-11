@@ -6,7 +6,7 @@ import "swiper/css/pagination";
 
 import { Pagination, Navigation } from "swiper";
 
-import CartCannal from './CartCannal';
+import CartCannal from '../../../Shared/CartCannal';
 
 
 

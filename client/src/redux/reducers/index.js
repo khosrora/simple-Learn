@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
-import Alert from "./alertReducer"
+import Load from "./loadReducer"
 import User from "./authReducer"
 import Categories from "./categoriesReducer"
 
 export default combineReducers({
-    Alert,
+    Load,
     User,
-    Categories
+    Categories,
 })

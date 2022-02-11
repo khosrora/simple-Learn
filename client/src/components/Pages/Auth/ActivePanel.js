@@ -13,7 +13,7 @@ const activePanelForm = Yup.object().shape({
 const ActivePanel = ({ setActive }) => {
 
     const dispatch = useDispatch();
-    const { Alert } = useSelector(state => state);
+    const { Load } = useSelector(state => state);
 
     return (
         <Formik
@@ -23,7 +23,6 @@ const ActivePanel = ({ setActive }) => {
             }}
             validationSchema={activePanelForm}
             onSubmit={data => {
-                console.log(data);
                 dispatch(activeAcc(data))
             }}
         >
@@ -36,7 +35,7 @@ const ActivePanel = ({ setActive }) => {
                         <div>{errors.code}</div>
                     ) : null}
                     <button type="submit">
-                        {Alert.load ? "در حال فعال سازی" : "ارسال کن !!"}
+                        {Load.wait ? "در حال فعال سازی" : "ارسال کن !!"}
                     </button>
                     <p onClick={() => { setActive(false) }}>شماره تماس من فعال شده &#128526; </p>
                 </Form>

@@ -87,6 +87,24 @@
     display: block;
 }
 
+.my-courses {
+    margin-top: 1rem;
+}
+
+.my-courses .my-courses-video {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+    padding: .5rem;
+    margin-top: 1rem;
+}
+
+.border-detailUser {
+    margin-bottom: 1rem;
+}
+
 @media only screen and (max-width: 1000px) {
 
     .open-menu {
@@ -108,4 +126,10 @@
         margin: auto;
         overflow-y: hidden;
     }
+
+    .my-courses .my-courses-video {
+        width: 100%;
+        padding: 0rem !important;
+    }
+
 }

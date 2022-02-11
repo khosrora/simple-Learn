@@ -17,7 +17,7 @@ const SubMenu = ({ user, alert }) => {
                     ?
                     <li><Link onClick={() => { dispatch(logout()) }} to="#">
                         {
-                            alert.load 
+                            alert.wait 
                             ?
                             "زود برگردی"
                             :

@@ -16,7 +16,7 @@ const SignupSchema = Yup.object().shape({
 const Register = ({ setPage }) => {
 
     const dispatch = useDispatch();
-    const { Alert } = useSelector(state => state);
+    const { Load } = useSelector(state => state);
 
     return (
         <div className='box-form'>
@@ -47,7 +47,7 @@ const Register = ({ setPage }) => {
                             <div>{errors.password}</div>
                         ) : null}
                         <button type="submit">
-                            {Alert.load ? "در حال ارسال" : " ثبت نام"}
+                            {Load.wait ? "در حال ارسال" : " ثبت نام"}
                         </button>
                         <p onClick={() => { setPage(true) }}>من قبلا ثبت نام کردم که ! &#128533;</p>
                     </Form>

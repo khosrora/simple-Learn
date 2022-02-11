@@ -15,6 +15,7 @@ const userSchema = new Schema({
     mobileActiveCode: { type: Number, required: true },
     isMobileActive: { type: Boolean, default: false },
     Newsletters: { type: Number, default: 0 },
+    isSendChannell: { type: Boolean, required: true, default: false },
     fav: [{ type: Schema.Types.ObjectId, ref: "Product" }],
 
 }, { timestamps: true });

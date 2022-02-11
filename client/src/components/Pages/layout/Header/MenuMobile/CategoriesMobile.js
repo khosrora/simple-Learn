@@ -9,7 +9,6 @@ const CategoriesMobile = () => {
     const { Categories } = useSelector(state => state);
 
 
-
     let arr = [];
     if (Categories.categories) {
         for (let i of Categories.categories) {

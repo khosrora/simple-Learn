@@ -277,6 +277,18 @@
 
 /* ! nav mobile  */
 
+.panel-alert {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: var(--dark);
+    padding: 1rem 0 1rem 0;
+}
+
+.panel-alert a {
+    color: var(--white);
+}
+
 @media only screen and (max-width: 1024px) {
     .navbar {
         border-bottom: none !important;

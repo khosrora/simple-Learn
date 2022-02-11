@@ -13,7 +13,13 @@ const Menu = () => {
                         <Link to="/userpanel">توضیحات</Link>
                     </li>
                     <li>
-                        <Link to="/userPanel/detailUser">اطلاعات شما</Link>
+                        <Link to="/userpanel/createChannel">ایجاد کانال</Link>
+                    </li>
+                    <li>
+                        <Link to="/userpanel/createCourse">ایجاد آموزش</Link>
+                    </li>
+                    <li>
+                        <Link to="/userpanel/detailUser">اطلاعات شما</Link>
                     </li>
                     <li>
                         <Link>ویدیو های ثبت شده</Link>

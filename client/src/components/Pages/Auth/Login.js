@@ -17,7 +17,7 @@ const Login = ({ setPage }) => {
     const [active, setActive] = useState(false);
     const dispatch = useDispatch();
 
-    const { Alert } = useSelector(state => state);
+    const { Load } = useSelector(state => state);
 
     return (
         <div className='box-form'>
@@ -47,7 +47,7 @@ const Login = ({ setPage }) => {
                                     <div>{errors.password}</div>
                                 ) : null}
                                 <button type="submit">
-                                    {Alert.load ? "الان وارد میشی" : "ورود"}
+                                    {Load.wait ? "الان وارد میشی" : "ورود"}
                                 </button>
                                 <p onClick={() => { setPage(false) }}>من که هنوز ثبت نام نکردم &#128533;</p>
                                 <p onClick={() => { setActive(true) }}> شماره تماس من فعال نشده است &#128527;</p>

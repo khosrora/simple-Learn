@@ -16,7 +16,7 @@ const ChangePassword = () => {
     const history = useHistory();
 
     const dispatch = useDispatch();
-    const { Alert } = useSelector(state => state);
+    const { Load } = useSelector(state => state);
 
     return (
         <div className="">
@@ -44,7 +44,7 @@ const ChangePassword = () => {
                             <div>{errors.newPassword}</div>
                         ) : null}
                         <button type="submit">
-                            {Alert.load ? "در حال تغییر" : "تغییر بده"}
+                            {Load.wait ? "در حال تغییر" : "تغییر بده"}
                         </button>
                         <p onClick={() => { history.push("/auth") }}>برو به صفحه ورود &#128580;</p>
                     </Form>

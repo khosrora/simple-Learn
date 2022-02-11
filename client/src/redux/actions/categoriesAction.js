@@ -7,7 +7,7 @@ import { GLOBALTYPES } from './globalTypes';
 
 export const getAllCategories = () => async (dispatch) => {
     try {
-        dispatch({ type: GLOBALTYPES.ALERT, payload: { laod: true } })
+        dispatch({ type: GLOBALTYPES.LOAD, payload: { wait: true } })
         const res = await getDataAPI("/getAllCategories");
         dispatch({
             type: GLOBALTYPES.CATEGORIES,
@@ -15,11 +15,11 @@ export const getAllCategories = () => async (dispatch) => {
                 categories: res.data.categories
             }
         })
-        dispatch({ type: GLOBALTYPES.ALERT, payload: {} })
+        dispatch({ type: GLOBALTYPES.LOAD, payload: {} })
 
     } catch (err) {
         console.log(err.message);
-        dispatch({ type: GLOBALTYPES.ALERT, payload: { load: false } });
+        dispatch({ type: GLOBALTYPES.LOAD, payload: {} });
         errorMessage(err.message)
     }
 }

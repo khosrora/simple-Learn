@@ -1,5 +1,6 @@
 export const GLOBALTYPES = {
-    ALERT: "ALERT",
-    USER: "USER" ,
-    CATEGORIES : "CATEGORIES"
+    LOAD: "LOAD",
+    USER: "USER",
+    CATEGORIES: "CATEGORIES",
+    CHANNELL: "CHANNELL"
 }

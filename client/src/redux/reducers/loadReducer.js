@@ -4,13 +4,13 @@ import { GLOBALTYPES } from '../actions/globalTypes';
 
 
 const initialState = {};
-const alertReducer = (state = initialState, action) => {
+const loadReducer = (state = initialState, action) => {
     switch (action.type) {
-        case GLOBALTYPES.ALERT:
+        case GLOBALTYPES.LOAD:
             return action.payload;
         default:
             return state;
     }
 }
 
-export default alertReducer;
+export default loadReducer;

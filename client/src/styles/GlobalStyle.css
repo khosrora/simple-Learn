@@ -84,6 +84,40 @@ a {
 
 /* carousel */
 
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-input {
+    margin-top: 2rem;
+    border: none;
+    background: none;
+    border: 1px solid var(--gray);
+    border-radius: 3px;
+    padding: .3rem 1rem;
+}
+
+.error {
+    font-size: 1rem;
+    color: var(--red);
+    margin-right: .5rem;
+}
+
+form button {
+    border: 1px solid var(--dark);
+    padding: .5rem 3rem;
+    border-radius: 3px;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: all .3s ease-in;
+}
+
+.form-panel p {
+    margin-top: 1rem;
+    margin-bottom: -1.5rem;
+}
+
 /* ! btn */
 
 /* ! loader */
@@ -98,3 +132,13 @@ a {
 @import url("./BestCanals.css");
 /* ! userPanel */
 @import url("./userPanel.css");
+/* ! userPanel */
+@import url("./userpanel/channell.css");
+
+
+@media only screen and (max-width: 600px) {
+    .container {
+        padding: 1rem !important;
+        width: 100%;
+    }
+}

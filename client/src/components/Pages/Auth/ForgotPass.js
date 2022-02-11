@@ -16,7 +16,7 @@ const forgotPassValidation = Yup.object().shape({
 const ForgotPass = () => {
 
     const [changePage, setChangePage] = useState(true);
-    const { Alert } = useSelector(state => state)
+    const { Load } = useSelector(state => state)
     const history = useHistory();
 
     const dispatch = useDispatch();
@@ -54,7 +54,7 @@ const ForgotPass = () => {
                                         <Field name="mobile" type="mobile" placeholder="ارسال کن *" />
                                         {errors.mobile && touched.mobile ? <div>{errors.mobile}</div> : null}
                                         <button type="submit">
-                                            {Alert.load ? "در حال ارسال" : "ارسال"}
+                                            {Load.wait ? "در حال ارسال" : "ارسال"}
                                         </button>
                                         <p> <Link to="/auth">  برو به صفحه ورود &#128563;</Link></p>
                                         <p onClick={() => setChangePage(false)}>پیام رسید &#128563;</p>

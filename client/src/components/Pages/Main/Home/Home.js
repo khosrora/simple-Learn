@@ -1,6 +1,6 @@
 import React from 'react';
 import TitleHeader from './../../layout/Header/TitleHeader';
-import BestCanals from './../BestCanals/BestCanals';
+import BestCanals from '../BestCanals/BestCanals';
 
 const Home = () => {
     return (

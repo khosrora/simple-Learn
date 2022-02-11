@@ -1,0 +1,7 @@
+.channel-form>* {
+    margin-top: 1rem;
+}
+
+.channel-form a {
+    color: var(--blue);
+}

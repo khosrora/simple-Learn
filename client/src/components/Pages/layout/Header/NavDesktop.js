@@ -21,7 +21,7 @@ const NavDesktop = ({ user, alert }) => {
                         {
                             user.token
                                 ?
-                                alert.load
+                                alert.wait
                                     ?
                                     <Link onClick={() => { dispatch(logout()) }} to="#" className='btn-dark'><i className='fa fa-sign-out-alt' style={{ marginLeft: "1rem" }}></i>
                                     زود برگردی
@@ -39,10 +39,7 @@ const NavDesktop = ({ user, alert }) => {
                 </div>
 
                 <ul>
-                    <li className='popup-parent'><Link to="#" className='btn-white'><i className="fas fa-users"></i> درباره ما</Link>
-                        <ul>
-                            <Popup />
-                        </ul>
+                    <li className='popup-parent'><Link to="/" className='btn-white'><i className="fas fa-home"></i>خانه</Link>
                     </li>
                     <li className='popup-parent'><Link to="#" className='btn-white'><i className="fas fa-user-friends"></i> با ما همکاری کن</Link>
                         <ul>
