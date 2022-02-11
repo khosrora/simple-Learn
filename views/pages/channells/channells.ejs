@@ -1,0 +1,99 @@
+<!-- includes -->
+<%- include("../../notify/message.ejs") %>
+    <%- include("../../notify/error.ejs") %>
+        <!-- includes -->
+        <div class="col-xs-12 col-md-12">
+            <div class="widget">
+                <div class="widget-header bordered-bottom bordered-yellow">
+                    <span class="widget-caption">کاربران</span>
+                    <div class="widget-buttons">
+                        <a href="#" data-toggle="maximize">
+                            <i class="fa fa-expand"></i>
+                        </a>
+                        <a href="#" data-toggle="collapse">
+                            <i class="fa fa-minus"></i>
+                        </a>
+                        <a href="#" data-toggle="dispose">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="widget-body no-padding">
+                    <table class="table table-bordered table-hover table-striped" id="searchable">
+                        <thead class="bordered-darkorange">
+                            <tr role="row">
+                                <th>نام کانال </th>
+                                <th>ارسال کننده</th>
+                                <th>فعالیت کانال</th>
+                                <th>پست الکترونیک</th>
+                                <th>شماره تماس</th>
+                                <th>#</th>
+                            </tr>
+                        </thead>
+
+                        <tfoot>
+                            <tr>
+                                <th rowspan="1" colspan="1"><input type="text" name="search_engine"
+                                        placeholder="نام کانال" class="form-control input-sm"></th>
+                                <th rowspan="1" colspan="1"><input type="text" name="search_browser"
+                                        placeholder="نام ارسال کننده" class="form-control input-sm"></th>
+                                <th rowspan="1" colspan="1"><input type="text" name="search_platform"
+                                        placeholder="مجاز / غیر مجاز" class="form-control input-sm"></th>
+                                <th rowspan="1" colspan="1"><input type="text" name="search_version"
+                                        placeholder="پست الکترونیک" class="form-control input-sm"></th>
+                                <th rowspan="1" colspan="1"><input type="text" name="search_grade"
+                                        placeholder="شماره تماس" class="form-control input-sm"></th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <% for (let channell of channells ) {%>
+                                <tr>
+                                    <td class=" sorting_1">
+                                        <%= channell.name %>
+                                    </td>
+                                    <td class=" ">
+                                        <%= channell.user.fullname %>
+                                    </td>
+                                    <td class=" ">
+                                        <% if(channell.permission) {%>
+                                            <a href="/admin/channellPermission/<%= channell._id %>"><span
+                                                    class="badge badge-success">مجاز</span></a>
+                                            <%}else {%>
+                                                <a href="/admin/channellPermission/<%= channell._id %>"><span
+                                                        class="badge badge-danger">غیر
+                                                        مجاز</span></a>
+                                                <%}%>
+                                    </td>
+                                    <td class="center ">
+                                        <%= channell.user.email %>
+                                    </td>
+                                    <td class="center ">
+                                        <%= channell.user.mobile %>
+                                    </td>
+                                    <td class="center ">
+                                        <a href="/admin/channell/<%= channell._id %>" class="btn btn-success">مشاهده
+                                            کامل
+                                            اطلاعات</a>
+                                    </td>
+                                </tr>
+                                <%}%>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+        <!-- /Page Body -->
+        </div>
+        <!-- /Page Content -->
+
+        <!--Page Related Scripts-->
+        <script src="/admin/assets/js/datatable/jquery.dataTables.min.js"></script>
+        <script src="/admin/assets/js/datatable/ZeroClipboard.js"></script>
+        <script src="/admin/assets/js/datatable/dataTables.tableTools.min.js"></script>
+        <script src="/admin/assets/js/datatable/dataTables.bootstrap.min.js"></script>
+        <script src="/admin/assets/js/datatable/datatables-init.js"></script>
+        <script>
+            InitiateSearchableDataTable.init();
+        </script>

@@ -10,7 +10,7 @@ const channelSchema = new Schema({
     image: { type: String, required: true },
     view: { type: Number, default: 0 },
     permission: { type: Boolean, default: false },
-    user: { type: Schema.Types.ObjectId, required: true }
+    user: { type: Schema.Types.ObjectId, required: true, ref: "User" }
 
 }, { timestamps: true });
 

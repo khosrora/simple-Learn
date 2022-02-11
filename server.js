@@ -74,6 +74,7 @@ app.use("/admin", require('./app/src/web/users/userRouter'))
 app.use("/admin", require('./app/src/web/dashboard/home/dashboardRouter'))
 app.use("/admin", require('./app/src/web/dashboard/user/userRouter'))
 app.use("/admin", require('./app/src/web/dashboard/categories/categoryRouter'))
+app.use("/admin", require('./app/src/web/dashboard/channells/channellRouter'))
 // * Routes Api
 app.use("/api", require('./app/src/api/users/userRouterAPI'))
 app.use("/api", require('./app/src/api/categories/categoryRouterAPI'))

@@ -120,6 +120,14 @@ form button {
 
 /* ! btn */
 
+.alert {
+    width: 100%;
+    background-color: var(--white-gray);
+    padding: 1rem;
+    border-radius: 4px;
+    text-align: center;
+}
+
 /* ! loader */
 @import url("./loading.css");
 /* ! auth page */
