@@ -26,7 +26,7 @@ const Categories = () => {
 
             {
                 arr.map(cate => (
-                    <li key={cate._id} li className='list-categories' ><Link> {cate.name} </Link>
+                    <li key={cate._id}  className='list-categories' ><Link to="#"> {cate.name} </Link>
                         <SubCategories categories={Categories.categories} id={cate._id}/>
                     </li>
                 ))

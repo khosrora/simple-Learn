@@ -7,7 +7,6 @@ export const requestChannel = (data) => async (dispatch) => {
     try {
         dispatch({ type: GLOBALTYPES.LOAD, payload: { sendData: true } });
         const res = await postDataAPI("requestChannel", data);
-        console.log(res)
         successMessage(res.data.message);
         dispatch({ type: GLOBALTYPES.LOAD, payload: {} });
     } catch (err) {

@@ -1,5 +1,6 @@
 const nanoId = require('../../../utilities/helpers/nanoId');
 const User = require('../../model/user/User');
+const Channel = require('../../model/channel/Channel');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
@@ -60,7 +61,7 @@ const userControllerAPI = {
     },
     // ? method ===> Login
     // ? desc ===> Login User
-    login: async (req, res, next) => {
+    login: async (req, res) => {
         try {
             // ! get body
             const { email, password } = req.body;
@@ -71,16 +72,23 @@ const userControllerAPI = {
             if (!user.isMobileActive) return res.status(400).json({ message: 'لطفا شماره تماس خود را فعال کنید' });
             const isMatchPassword = await bcrypt.compareSync(password, user.password);
             if (!isMatchPassword) return res.status(400).json({ message: 'لطفا ابتدا ثبت نام کنید' });
-
             const access_token = createAccessToken({ _id: user._id });
-
+            // ! channell user
+            let channell;
+            if (user.isSendChannell) {
+                channell = await findChannell(user);
+            } else {
+                channell = null;
+            }
+            // ! response
             return res.status(200).json({
                 message: "ورود موفقیت آمیز بود",
                 access_token,
                 user: {
                     ...user._doc,
-                    password: ""
-                }
+                    password: "",
+                },
+                channell
             })
 
         } catch (err) {
@@ -99,11 +107,19 @@ const userControllerAPI = {
                 const user = await User.findById({ _id: result._id }).select("-password");
                 if (!user) return res.status(400).json({ msg: "این کاربر پیدا نشد" });
                 const access_token = createAccessToken({ id: result.id });
+                // ! channell user
+                let channell;
+                if (user.isSendChannell) {
+                    channell = await findChannell(user);
+                } else {
+                    channell = null;
+                }
                 // ! send to Client
                 res.json({
                     msg: "ورود شما موفقیت آمیز بود",
                     access_token,
-                    user
+                    user,
+                    channell
                 })
             })
         } catch (err) {
@@ -156,6 +172,16 @@ const userControllerAPI = {
 
 const createAccessToken = (payload) => {
     return jwt.sign(payload, process.env.JWT_TOKEN, { expiresIn: "30d" })
+}
+
+const findChannell = async user => {
+    const channell = await Channel.findOne({
+        $and: [
+            { user: user._id },
+            { permission: true }
+        ]
+    }).select("name shortDesc desc linkAparat image view -_id");
+    return channell;
 }
 
 

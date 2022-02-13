@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
-import CartCannal from '../../Shared/CartCannal';
+
+
 
 const DetailUser = () => {
 
@@ -9,22 +10,21 @@ const DetailUser = () => {
         <div className="container">
             <div className="box-overflow">
                 <div className="border-detailUser">
-                    <p>نام و نام خانوادگی : <span>{User.user.fullname}</span></p>
-                    <p>پست الکترونیک : <span>{User.user.email}</span></p>
-                    <p>شماره تماس : <span>{User.user.mobile}</span></p>
+                    <p>نام و نام خانوادگی : <br /> <span>{User.user.fullname}</span></p>
+                    <p>پست الکترونیک : <br /> <span>{User.user.email}</span></p>
+                    <p>شماره تماس : <br /> <span>{User.user.mobile}</span></p>
                 </div>
                 <hr />
-                <div className="my-courses">
-                    <h4>ویدیو های ثبت شده شما</h4>
-                    <div className="my-courses-video">
-                        <CartCannal />
-                        <CartCannal />
-                        <CartCannal />
-                        <CartCannal />
-                        <CartCannal />
-                        <CartCannal />
-                    </div>
-                </div>
+                {
+                    User.channell &&
+                    <>
+                        <div className="border-detailUser">
+                            <p>نام کانال : <br /> <span>{User.channell.name}</span></p>
+                            <p>توضیحات کوتاه : <br /> <span>{User.channell.shortDesc}</span></p>
+                            <p>توضیحات  : <br /> <span>{User.channell.desc}</span></p>
+                        </div>
+                    </>
+                }
             </div>
         </div>
     );

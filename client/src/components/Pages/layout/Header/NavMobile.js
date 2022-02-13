@@ -11,7 +11,7 @@ const NavMobile = ({ user, alert }) => {
         <div>
             <div className="navMobile">
                 <div onClick={() => setMenu(true)}>
-                    <i class="fas fa-bars"></i>
+                    <i className="fas fa-bars"></i>
                 </div>
                 <h4 className="">آسان یاد بگیر !!</h4>
                 <Link to="/auth"><i className='fas fa-user'></i></Link>

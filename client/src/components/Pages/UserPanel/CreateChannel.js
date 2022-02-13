@@ -30,6 +30,10 @@ const CreateChannel = () => {
         e.preventDefault();
         try {
 
+            if (!channell.name || !channell.shortDesc || !channell.desc || !channell.linkAparat || !file) {
+                return errorMessage("لطفا تمام مقادیر را کامل کنید");
+            }
+
             var data = new FormData();
             data.append('file', file);
             data.append('name', channell.name);
@@ -41,7 +45,7 @@ const CreateChannel = () => {
             dispatch(requestChannel(data));
 
         } catch (err) {
-            errorMessage("متاسفانه مشکلی رخ داده است");
+            errorMessage("متاسفانه مشکلی رخ داده است لطفا دوباره سعی کنید");
         }
     }
 
@@ -60,12 +64,12 @@ const CreateChannel = () => {
                         <form className="form-panel" style={{ width: "70%" }} >
                             <p>نام کانال : </p>
                             <input type="text" className="form-input" name='name' value={channell.name} onChange={handleChangeInput} />
-                            <p>توضیحات کوتاه : </p>
-                            <input type="text" className="form-input" name='shortDesc' value={channell.shortDesc} onChange={handleChangeInput} />
-                            <p>توضیحات  : </p>
-                            <input type="text" className="form-input" name='desc' value={channell.desc} onChange={handleChangeInput} />
                             <p>لینک ویدیو  : </p>
                             <input type="text" className="form-input" name='linkAparat' value={channell.linkAparat} onChange={handleChangeInput} />
+                            <p>توضیحات کوتاه : </p>
+                            <textarea type="text" className="form-input" name='shortDesc' value={channell.shortDesc} onChange={handleChangeInput} />
+                            <p>توضیحات  : </p>
+                            <textarea type="text" className="form-input" name='desc' value={channell.desc} onChange={handleChangeInput} />
                             <p>عکس  : </p>
                             <input type="file" className="form-input" name='file' onChange={e => setFile(e.target.files[0])} />
                             {

@@ -1,7 +1,6 @@
 import axios from "axios";
+import { server } from "./BaseUrl"
 
-
-const server = 'http://localhost:4000'
 
 
 export const getDataAPI = async (url, token) => {

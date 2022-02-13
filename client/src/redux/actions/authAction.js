@@ -40,7 +40,8 @@ export const login = (data) => async (dispatch) => {
         dispatch({
             type: GLOBALTYPES.USER, payload: {
                 token: res.data.access_token,
-                user: res.data.user
+                user: res.data.user,
+                channell: res.data.channell
             }
         });
         dispatch({ type: GLOBALTYPES.LOAD, payload: {} });
@@ -66,7 +67,8 @@ export const refreshToken = () => async (dispatch) => {
                 type: GLOBALTYPES.USER,
                 payload: {
                     token: res.data.access_token,
-                    user: res.data.user
+                    user: res.data.user,
+                    channell: res.data.channell
                 }
             })
             dispatch({ type: GLOBALTYPES.LOAD, payload: {} })

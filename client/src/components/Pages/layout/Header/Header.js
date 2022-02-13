@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 
 import NavDesktop from './NavDesktop';
 import NavMobile from './NavMobile';
@@ -11,6 +12,7 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
 
+    const location = useLocation();
 
     const dispatch = useDispatch();
 
@@ -23,10 +25,13 @@ const Header = () => {
     return (
         <div>
             {
-                User.token ?
-                    <div className="panel-alert">
-                        <Link to="/userpanel">از اینجا وارد پنل خود شوید</Link>
-                    </div>
+                location.pathname === "/" ?
+                    User.token ?
+                        <div className="panel-alert">
+                            <Link to="/userpanel">از اینجا وارد پنل خود شوید</Link>
+                        </div>
+                        :
+                        null
                     :
                     null
             }
