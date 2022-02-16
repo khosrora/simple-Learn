@@ -79,6 +79,7 @@ app.use("/admin", require('./app/src/web/dashboard/channells/channellRouter'))
 app.use("/api", require('./app/src/api/users/userRouterAPI'))
 app.use("/api", require('./app/src/api/categories/categoryRouterAPI'))
 app.use("/api", require('./app/src/api/channel/channelRouterAPI'))
+app.use("/api", require('./app/src/api/gallery/galleryRouterAPI'))
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 const port = process.env.PORT || 4001;

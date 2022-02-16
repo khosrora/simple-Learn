@@ -14,6 +14,7 @@ input::placeholder {
 .container {
     padding: 3rem 3rem 0 3rem !important;
     width: 80%;
+    overflow-y: auto !important;
 }
 
 :root {
@@ -142,6 +143,8 @@ form button {
 @import url("./userPanel.css");
 /* ! userPanel */
 @import url("./userpanel/channell.css");
+/* ! GalleryChannell */
+@import url("./userpanel/GalleryChannell.css");
 
 
 @media only screen and (max-width: 600px) {

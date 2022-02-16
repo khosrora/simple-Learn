@@ -17,13 +17,15 @@ const DetailUser = () => {
                 <hr />
                 {
                     User.channell &&
-                    <>
+                    <div>
                         <div className="border-detailUser">
                             <p>نام کانال : <br /> <span>{User.channell.name}</span></p>
+                            <p>لینک آپارات : <br /> <a target="_blank" href={User.channell.linkAparat} >{User.channell.linkAparat}</a></p>
                             <p>توضیحات کوتاه : <br /> <span>{User.channell.shortDesc}</span></p>
                             <p>توضیحات  : <br /> <span>{User.channell.desc}</span></p>
                         </div>
-                    </>
+
+                    </div>
                 }
             </div>
         </div>

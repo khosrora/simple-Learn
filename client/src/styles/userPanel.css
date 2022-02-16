@@ -43,7 +43,7 @@
 
 .box-overflow {
     height: 100vh !important;
-    overflow-y: auto;
+    overflow: auto !important;
 }
 
 .open-menu {

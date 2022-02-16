@@ -23,6 +23,9 @@ const Menu = () => {
                                 <li>
                                     <Link to="/userpanel/createCourse">ایجاد آموزش</Link>
                                 </li>
+                                <li>
+                                    <Link to="/userpanel/createGallery">گالری تصاویر</Link>
+                                </li>
                             </>
                             :
                             <li>

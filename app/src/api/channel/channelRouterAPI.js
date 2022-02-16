@@ -17,8 +17,21 @@ const channelControllerAPI = require('./channelControllerAPI');
  *      '200':
  *        description: A successful response
  */
-router.post("/requestChannel", upload.single("file"), channelControllerAPI.requestChannel)
+router.post("/requestChannel", channelControllerAPI.requestChannel)
 
+
+// ? method ===> POST
+// ? desc ===> ghange Image Channell
+/**
+ * @swagger
+ * /ghangeImageChannell:
+ *  post:
+ *    description: ghange Image Channell
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ */
+router.post("/ghangeImageChannell", channelControllerAPI.ghangeImage)
 
 
 module.exports = router;

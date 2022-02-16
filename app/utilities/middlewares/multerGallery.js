@@ -5,12 +5,13 @@ const multer = require("multer");
 // !
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, 'public/uploads/images/channell/')
+        cb(null, 'public/uploads/images/gallery')
     },
     filename: function (req, file, cb) {
         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
     }
 })
 
-exports.upload = multer({ storage: storage })
+var upload = multer({ storage: storage })
+exports.uploadMultiple = upload.fields([{ name: 'images', maxCount: 10 }])
 // !
