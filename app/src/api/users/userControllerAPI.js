@@ -180,7 +180,7 @@ const findChannell = async user => {
             { user: user._id },
             { permission: true }
         ]
-    }).select("name shortDesc desc linkAparat image view -_id");
+    }).select("name shortDesc desc linkAparat image view _id permission");
     return channell;
 }
 

@@ -33,5 +33,18 @@ router.post("/requestChannel", channelControllerAPI.requestChannel)
  */
 router.post("/ghangeImageChannell", channelControllerAPI.ghangeImage)
 
+// ? method ===> POST
+// ? desc ===> edit Channell
+/**
+ * @swagger
+ * /ghangeImageChannell:
+ *  post:
+ *    description: edit Channell
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ */
+router.post("/editChannell", channelControllerAPI.editChannell)
+
 
 module.exports = router;

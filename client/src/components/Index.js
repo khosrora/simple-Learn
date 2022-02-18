@@ -14,6 +14,7 @@ import Description from './Pages/UserPanel/Description';
 import DetailUser from './Pages/UserPanel/DetailUser';
 import CreateChannell from './Pages/UserPanel/CreateChannell';
 import CreateGallery from './Pages/UserPanel/CreateGallery';
+import CreateCourse from './Pages/UserPanel/CreateCourse';
 
 const Index = () => {
 
@@ -47,6 +48,7 @@ const Index = () => {
                                     <Switch>
                                         <Route exact path="/userPanel/detailUser" component={DetailUser} />
                                         <Route exact path="/userPanel/createChannel" component={CreateChannell} />
+                                        <Route exact path="/userPanel/createCourse" component={CreateCourse} />
                                         <Route exact path="/userPanel/createGallery" component={CreateGallery} />
                                         <Route exact path="/userPanel" component={Description} />
                                     </Switch>

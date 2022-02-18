@@ -9,7 +9,6 @@ const channelControllerAPI = {
             const { name, shortDesc, desc, linkAparat, userId } = req.body;
             // ! find user
             const user = await User.findOne({ _id: userId });
-            console.log(user)
             if (!user) return res.status(400).json({ message: "متاسفانه کاربر مورد نظر پیدا نشد" });
             // ! checked request
             if (user.isSendChannell) return res.status(400).json({ message: "درخواست شما ارسال شده . لطفا منتظر بمانید" });
@@ -48,6 +47,26 @@ const channelControllerAPI = {
             // ! response to client
             return res.status(200).json({ message: "عکس کانال تغییر کرد" })
 
+        } catch (err) {
+            return res.status(500).json({ message: err.message })
+        }
+    },
+    editChannell: async (req, res) => {
+        try {
+            // ! get items 
+            const { name, shortDesc, desc, linkAparat, id } = req.body;
+            // ! update
+            const chann = await Channel.findByIdAndUpdate({ _id: id }, {
+                name, shortDesc, desc, linkAparat
+            })
+            if (!chann) return res.status(400).json({ message: "کانال مورد نظر پیدا نشد" })
+            chann.permission = false;
+            await chann.save();
+            // ! send response to client
+            return res.status(200).json({
+                message: "کانال شما با موفقیت ویرایش شد.منتظر تایید مدیریت باشید",
+                channel: chann
+            })
         } catch (err) {
             return res.status(500).json({ message: err.message })
         }

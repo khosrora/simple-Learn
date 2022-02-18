@@ -1,13 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { refreshToken } from "../../../../redux/actions/authAction";
 
 const Menu = () => {
 
     const [Menu, setMenu] = useState(true);
 
     const { User } = useSelector(state => state)
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(refreshToken());
+    }, [dispatch])
 
     return (
         <div>
