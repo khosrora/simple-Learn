@@ -3,13 +3,15 @@ import JoditEditor from "jodit-react";
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { createCourse } from '../../../redux/actions/courseAction';
+import { successMessage } from './../../utilities/Toastify';
 
 const initial = {
     image: '',
     title: '',
+    url: '',
     shortDesc: '',
     content: '',
-    user: '',
+    channell: '',
 }
 
 const CreateCourse = () => {
@@ -33,8 +35,14 @@ const CreateCourse = () => {
     const handleSubmit = async e => {
         e.preventDefault();
         try {
+
             course.content = content;
-            course.user = User.user._id;
+            course.channell = User.channell._id;
+            
+            if (!course.image || !course.title || !course.shortDesc || !course.content) {
+                return successMessage("لطفا تمام مقادیر را کامل کنید");
+            }
+
             await dispatch(createCourse(course));
             setCourse(initial)
             setContent('')
@@ -54,6 +62,10 @@ const CreateCourse = () => {
                     <div className="form-group">
                         <p>عنوان آموزش :</p>
                         <input className="form-input" name='title' type="text" value={course.title} onChange={onChangeInput} placeholder="عنوان آموزش" />
+                    </div>
+                    <div className="form-group">
+                        <p>لینک آموزش :</p>
+                        <input className="form-input" name='url' type="text" value={course.url} onChange={onChangeInput} placeholder="لینک آموزش" />
                     </div>
                     <div className="form-group">
                         <p>توضیحات کوتاه :</p>

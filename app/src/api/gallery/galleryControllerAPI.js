@@ -2,6 +2,7 @@ const Gallery = require('../../model/gallery/Gallery');
 const fs = require('fs');
 
 const appRoot = require('app-root-path');
+const sharp = require('sharp');
 
 
 const channelControllerAPI = {
@@ -10,6 +11,8 @@ const channelControllerAPI = {
             // ! get items
             const { userId } = req.body;
             if (!req.files) return res.status(400).json({ message: "حداقل یک عکس انتخاب کنید" })
+            // ! validation
+            Gallery.galleryValidation(req.body)
             // ! create gallery
             const images = await createGallery(req.files.images, userId);
             // ! response to client
@@ -45,6 +48,7 @@ const channelControllerAPI = {
             const imageGallery = await Gallery.findByIdAndDelete({ _id: id })
             if (!imageGallery) return res.status(400).json({ message: "عکس مورد نظر پیدا نشد !!" })
             fs.unlinkSync(`${appRoot}/public/uploads/images/gallery/` + imageGallery.fileName);
+            fs.unlinkSync(`${appRoot}/public/uploads/images/gallery/` + `thumb${imageGallery.fileName}`);
             // ! response to client
             return res.status(200).json({ message: "عکس مورد نظر حذف شد" })
         } catch (err) {
@@ -56,14 +60,21 @@ const channelControllerAPI = {
 const createGallery = async (images, id) => {
     try {
         for (let i of images) {
+            const path = `${i.destination}thumb${i.filename}`
+            await sharp(i.path)
+                .resize(400)
+                .toFile(
+                    path
+                )
             await Gallery.create({
-                user: id, name: i.originalname, fileName: i.filename, link: `${process.env.url}/uploads/images/gallery/${i.filename}`
+                user: id, name: i.originalname, fileName: i.filename, thumb: `${process.env.url}/uploads/images/gallery/thumb${i.filename}`, image: `${process.env.url}/uploads/images/gallery/${i.filename}`
             })
         }
         return true
     } catch (err) {
         for (let i of images) {
             fs.unlinkSync(`${appRoot}/public/uploads/images/gallery/` + i.filename);
+            fs.unlinkSync(`${appRoot}/public/uploads/images/gallery/` + `thumb${i.filename}`);
         }
         return false
     }

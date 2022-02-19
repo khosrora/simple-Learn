@@ -1,0 +1,80 @@
+<!-- Page Body -->
+<div class="page-body">
+    <div class="row">
+        <div class="col-lg-12 col-sm-12 col-xs-12">
+            <div class="well invoice-container">
+
+                <div class="row">
+                    <div class="col-xs-5">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h6>از طرف: <%= course.channell.name %>
+                                </h6>
+                            </div>
+                            <div class="panel-body">
+                                <ul>
+                                    <li>
+                                        <%= course.channell.shortDesc %>
+                                    </li>
+                                    <li>
+                                        <a href="<%= course.channell.linkAparat %>" target="_blank">
+                                            <%= course.channell.linkAparat %>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-5 col-xs-offset-2 text-right">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h6>نام آموزش: <%= course.title %>
+                                </h6>
+                            </div>
+                            <div class="panel-body">
+                                <ul>
+                                    <li>
+                                        لینک آموزش :
+                                        <a href="<%= course.url %>" target="_blank">
+                                            <%= course.url %>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            تاریخ ارسال : <%= jalaliMoment(course.createdAt) %>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <% if(course.permission) {%>
+                                            <a href="/admin/coursePermission/<%= course._id %>"><span
+                                                    class="badge badge-success">مجاز</span></a>
+                                            <%}else {%>
+                                                <a href="/admin/coursePermission/<%= course._id %>"><span
+                                                        class="badge badge-danger">غیر
+                                                        مجاز</span></a>
+                                                <%}%>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- / end client details section -->
+                <hr class="wide" />
+                <div class="invoice-notes">
+                    <h5>توضیحات کوتاه</h5>
+                    <p>
+                        <%= course.shortDesc %>
+                    </p>
+                </div>
+                <hr class="wide" />
+                <div class="invoice-notes">
+                    <h5>توضیحات</h5>
+                    <p>
+                        <%- course.content %>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Page Body -->

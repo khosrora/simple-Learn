@@ -8,11 +8,12 @@ import Index from './components/Index';
 
 function App() {
 
+
   return (
     <div className="body">
       <Index />
       <ToastContainer />
-    </div>
+    </div >
   );
 }
 

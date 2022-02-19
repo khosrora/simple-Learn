@@ -3,7 +3,8 @@ export const GLOBALTYPES = {
     USER: "USER",
     CATEGORIES: "CATEGORIES",
     CHANNELL: "CHANNELL",
-    GALLERY: "GALLERY"
+    GALLERY: "GALLERY",
+    PUBLIC: "PUBLIC"
 }
 
 // export const EditData = (data, id, post) => {

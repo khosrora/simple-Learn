@@ -43,7 +43,6 @@ const CreateChannel = () => {
                             }}
                             validationSchema={channellSchema}
                             onSubmit={data => {
-                                console.log(data)
                                 dispatch(requestChannel(data))
                             }}
                         >

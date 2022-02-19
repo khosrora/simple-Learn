@@ -7,7 +7,6 @@ export const GALLERY_TYPES = {
     CREATE_IMAGE: "CREATE_IMAGE",
     DELETE_IMAGE: 'DELETE_IMAGE',
 }
-
 export const galleryCreate = (data) => async (dispatch) => {
     try {
         dispatch({ type: GLOBALTYPES.LOAD, payload: { sendData: true } });
@@ -25,10 +24,9 @@ export const galleryCreate = (data) => async (dispatch) => {
         dispatch({ type: GLOBALTYPES.LOAD, payload: {} });
     }
 }
-
 export const getGalleries = (id) => async (dispatch) => {
     try {
-        dispatch({ type: GLOBALTYPES.LOAD, payload: { wait: true } });
+        dispatch({ type: GLOBALTYPES.LOAD, payload: { fetching: true } });
         const res = await postDataAPI("getAllImages", { userId: id });
         dispatch({
             type: GLOBALTYPES.GALLERY, payload: {
@@ -55,7 +53,6 @@ export const changeImageChannell = (data) => async (dispatch) => {
         dispatch({ type: GLOBALTYPES.LOAD, payload: {} });
     }
 }
-
 export const deleteImage = (id) => async (dispatch) => {
     try {
         dispatch({ type: GLOBALTYPES.LOAD, payload: { fetching: true } });

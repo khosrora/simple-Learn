@@ -75,12 +75,14 @@ app.use("/admin", require('./app/src/web/dashboard/home/dashboardRouter'))
 app.use("/admin", require('./app/src/web/dashboard/user/userRouter'))
 app.use("/admin", require('./app/src/web/dashboard/categories/categoryRouter'))
 app.use("/admin", require('./app/src/web/dashboard/channells/channellRouter'))
+app.use("/admin", require('./app/src/web/dashboard/courses/courseRouter'))
 // * Routes Api
 app.use("/api", require('./app/src/api/users/userRouterAPI'))
 app.use("/api", require('./app/src/api/categories/categoryRouterAPI'))
 app.use("/api", require('./app/src/api/channel/channelRouterAPI'))
 app.use("/api", require('./app/src/api/gallery/galleryRouterAPI'))
 app.use("/api", require('./app/src/api/course/courseRouterAPI'))
+app.use("/api", require('./app/src/api/public/publicRouterAPI'))
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 const port = process.env.PORT || 4001;

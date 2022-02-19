@@ -1,12 +1,13 @@
 const User = require('../../model/user/User');
-const Channel = require('../../model/channel/Channel');
-
+const Channell = require('../../model/channell/Channell');
 
 const channelControllerAPI = {
     requestChannel: async (req, res) => {
         try {
             // ! get items 
             const { name, shortDesc, desc, linkAparat, userId } = req.body;
+            // ! validation
+            await Channell.channellValidate(req.body)
             // ! find user
             const user = await User.findOne({ _id: userId });
             if (!user) return res.status(400).json({ message: "متاسفانه کاربر مورد نظر پیدا نشد" });
@@ -14,14 +15,14 @@ const channelControllerAPI = {
             if (user.isSendChannell) return res.status(400).json({ message: "درخواست شما ارسال شده . لطفا منتظر بمانید" });
             // ! validation
             if (!name || !shortDesc || !desc || !linkAparat || !userId) return res.status(400).json({ message: "لطفا تمام اطلاعات را وارد کنید" });
-            const channel = await Channel.findOne({
+            const channell = await Channell.findOne({
                 $or: [
                     { name }, { linkAparat }
                 ]
             })
-            if (channel) return res.status(400).json({ message: "کانالی با این نام ثبت شده است" });
+            if (channell) return res.status(400).json({ message: "کانالی با این نام ثبت شده است" });
             // ! create Channell
-            await Channel.create({
+            await Channell.create({
                 name, shortDesc, desc, linkAparat, image: `/uploads/images/channell/default.png`, user: userId
             })
             user.isSendChannell = true;
@@ -39,7 +40,7 @@ const channelControllerAPI = {
             // ! get items 
             const { link, user } = req.body;
             // ! find channell
-            const channell = await Channel.findOne({ user });
+            const channell = await Channell.findOne({ user });
             if (!channell) return res.status(400).json({ message: "لطفا ابتدا درخواست کانال خود را ارسال کنید" });
             // ! change image
             channell.image = link;
@@ -56,7 +57,7 @@ const channelControllerAPI = {
             // ! get items 
             const { name, shortDesc, desc, linkAparat, id } = req.body;
             // ! update
-            const chann = await Channel.findByIdAndUpdate({ _id: id }, {
+            const chann = await Channell.findByIdAndUpdate({ _id: id }, {
                 name, shortDesc, desc, linkAparat
             })
             if (!chann) return res.status(400).json({ message: "کانال مورد نظر پیدا نشد" })

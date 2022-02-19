@@ -1,4 +1,4 @@
-const Channel = require('../../../model/channel/Channel');
+const Channell = require('../../../model/channell/Channell');
 const { jalaliMoment } = require('../../../../utilities/helpers/jalali');
 
 
@@ -8,7 +8,8 @@ const channellController = {
     // ? Desc ==>  get all channells
     getAllChannells: async (req, res) => {
         try {
-            const channells = await Channel.find().populate("user");
+            const channells = await Channell.find().populate("user");
+            console.log(channells);
             res.render("pages/channells/channells.ejs", {
                 title: "پنل مدیریت || کانال ها",
                 bread: "کانال ها",
@@ -28,7 +29,7 @@ const channellController = {
             // ! get params
             const id = req.params.id;
             // ! find channell
-            const channell = await Channel.findById(id);
+            const channell = await Channell.findById(id);
             if (!channell) {
                 req.flash("error", "کانال مورد نظر پیدا نشد")
                 res.redirect("/admin/allChannells")
@@ -57,7 +58,7 @@ const channellController = {
             // ! get params
             const id = req.params.id;
             // ! find channell
-            const channell = await Channel.findById(id).populate("user");
+            const channell = await Channell.findById(id).populate("user");
             if (!channell) {
                 req.flash("error", "کانال مورد نظر پیدا نشد")
                 res.redirect("/admin/allChannells")

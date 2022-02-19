@@ -1,6 +1,6 @@
 const nanoId = require('../../../utilities/helpers/nanoId');
 const User = require('../../model/user/User');
-const Channel = require('../../model/channel/Channel');
+const Channell = require('../../model/channell/Channell');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
@@ -12,6 +12,8 @@ const userControllerAPI = {
         try {
             // ! get items
             const { fullname, email, mobile, password } = req.body;
+            // ! validation
+            await User.userValidate(req.body);
             // ! find user
             const user = await User.findOne({
                 $or: [
@@ -175,7 +177,7 @@ const createAccessToken = (payload) => {
 }
 
 const findChannell = async user => {
-    const channell = await Channel.findOne({
+    const channell = await Channell.findOne({
         $and: [
             { user: user._id },
             { permission: true }

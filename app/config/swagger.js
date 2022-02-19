@@ -16,6 +16,7 @@ exports.swaggerOptions = {
         "./app/src/api/users/userRouterAPI.js",
         "./app/src/api/categories/categoryRouterAPI.js",
         "./app/src/api/channel/channelRouterAPI.js",
+        "./app/src/api/public/userRouterAPI.js",
     ]
 };
 

@@ -1,4 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useSelector } from 'react-redux';
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -12,6 +13,10 @@ import CartCannal from '../../../Shared/CartCannal';
 
 
 const BestCanals = () => {
+
+    const { publicData } = useSelector(state => state);
+    console.log(publicData.topChannells);
+
     return (
         <div className='bestCanals'>
             <div className="details-bestcanal">
@@ -54,31 +59,17 @@ const BestCanals = () => {
                             },
                         }}
                     >
-                        <SwiperSlide>
-                            <CartCannal />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <CartCannal />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <CartCannal />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <CartCannal />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <CartCannal />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <CartCannal />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <CartCannal />
-                        </SwiperSlide>
+                        {
+                            publicData.topChannells.map(i =>
+                                <SwiperSlide>
+                                    <CartCannal name={i.name} shortDesc={i.shortDesc} image={i.image} view={i.view} />
+                                </SwiperSlide>
+                            )
+                        }
                     </Swiper>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

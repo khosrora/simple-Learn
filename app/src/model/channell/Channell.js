@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const { channellValidation } = require('./chanellValidation');
 
 
 const channelSchema = new Schema({
@@ -14,4 +15,8 @@ const channelSchema = new Schema({
 
 }, { timestamps: true });
 
-module.exports = model("Channel", channelSchema);
+channelSchema.statics.channellValidate = body => {
+    return channellValidation.validate(body)
+}
+
+module.exports = model("Channell", channelSchema);

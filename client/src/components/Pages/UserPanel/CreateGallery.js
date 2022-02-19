@@ -3,6 +3,7 @@ import { errorMessage } from '../../utilities/Toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import { galleryCreate, getGalleries } from './../../../redux/actions/galleryAction';
 import GalleryChannell from './GalleryChannell';
+import UserPanellLoading from './../Loading/UserPanellLoading';
 
 const CreateGallery = () => {
 
@@ -50,13 +51,11 @@ const CreateGallery = () => {
                     <div className='gallery'>
                         {
                             Load.fetching ?
-                                <div className="alert">
-                                    <p>در حال دریافت اطلاعات</p>
-                                </div>
+                                <UserPanellLoading />
                                 :
                                 gallery.allGallery ?
                                     gallery.allGallery.map(i => (
-                                        <GalleryChannell key={i._id} id={i._id} url={i.link} name={i.name} />
+                                        <GalleryChannell key={i._id} id={i._id} url={i.thumb} name={i.name} />
                                     ))
                                     :
                                     <div className="alert">
