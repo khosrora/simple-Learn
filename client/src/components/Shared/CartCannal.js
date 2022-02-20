@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const CartCannal = ({ name, shortDesc, image, view }) => {
+const CartCannal = ({ slug, name, shortDesc, image, view }) => {
     return (
-        <Link to="#">
+        <Link to={`channell/${slug}`}>
             <div className="cart-canal">
                 <div className="image-canals-section">
                     <img src={image} alt={name} />

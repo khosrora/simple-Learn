@@ -15,6 +15,7 @@ import DetailUser from './Pages/UserPanel/DetailUser';
 import CreateChannell from './Pages/UserPanel/CreateChannell';
 import CreateGallery from './Pages/UserPanel/CreateGallery';
 import CreateCourse from './Pages/UserPanel/CreateCourse';
+import SingleChannell from './Pages/Main/BestChanells/SingleChannell';
 
 const Index = () => {
 
@@ -58,6 +59,7 @@ const Index = () => {
                             <Redirect to='/' />
                     }
                     <Route exact path="/" component={Home} />
+                    <Route exact path="/channell/:slug" component={SingleChannell} />
                 </Layout>
             </Switch>
         </div>

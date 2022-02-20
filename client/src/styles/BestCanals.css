@@ -1,55 +1,11 @@
-.bestCanals {
+.bests {
     margin-top: 3rem;
     width: 100% !important;
 }
 
-.bestCanals .details-bestcanal {
+.bests .details-bests {
     margin: auto;
     padding: 2rem;
-}
-
-.bestCanals .details-bestcanal .title-details p {
-    font-size: 2rem;
-    font-weight: bolder;
-    position: relative;
-    margin-bottom: .5rem;
-}
-
-.bestCanals .details-bestcanal .title-details p::after {
-    content: "";
-    width: .5rem;
-    height: 100%;
-    position: absolute;
-    background-color: var(--yellow);
-    right: -10rem;
-    transition: all .5s ease-in;
-}
-
-.bestCanals .details-bestcanal:hover .title-details p::after {
-    right: -1rem;
-    transition: all .5s ease-in-out;
-}
-
-.bestCanals .details-bestcanal .title-details span {
-    opacity: .5;
-}
-
-.bestCanals .details-bestcanal .canals-section {
-    border: 1px solid var(--dark);
-    padding: 1rem;
-    border-radius: 4px;
-}
-
-@media only screen and (max-width: 1000px) {
-    .bestCanals .details-bestcanal .title-details p {
-        font-size: 1.5rem;
-        position: relative;
-        margin-bottom: .5rem;
-    }
-
-    .bestCanals .details-bestcanal .title-details span {
-        font-size: .7rem;        
-    }
 }
 
 

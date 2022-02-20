@@ -8,7 +8,7 @@ const Menu = () => {
     const [Menu, setMenu] = useState(true);
 
     const { User } = useSelector(state => state)
-
+    console.log(User.channell);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -24,7 +24,7 @@ const Menu = () => {
                             ?
                             <>
                                 <li>
-                                    <Link to="/">مشاهده کانال</Link>
+                                    <Link to={`/channell/${User.channell.slug}`}>مشاهده کانال</Link>
                                 </li>
                                 <li>
                                     <Link to="/userpanel/createCourse">ایجاد آموزش</Link>

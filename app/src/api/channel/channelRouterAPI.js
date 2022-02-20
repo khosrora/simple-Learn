@@ -31,7 +31,7 @@ router.post("/requestChannel", channelControllerAPI.requestChannel)
  *      '200':
  *        description: A successful response
  */
-router.post("/ghangeImageChannell", channelControllerAPI.ghangeImage)
+router.post("/ghangeImageChannell", channelControllerAPI.changeImage)
 
 // ? method ===> POST
 // ? desc ===> edit Channell
@@ -45,6 +45,19 @@ router.post("/ghangeImageChannell", channelControllerAPI.ghangeImage)
  *        description: A successful response
  */
 router.post("/editChannell", channelControllerAPI.editChannell)
+
+// ? method ===> GET
+// ? desc ===> get channell
+/**
+ * @swagger
+ * /get channell:
+ *  post:
+ *    description: get Channell
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ */
+router.get("/channell/:slug", channelControllerAPI.getChannell)
 
 
 module.exports = router;

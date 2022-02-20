@@ -1,0 +1,88 @@
+.title-Channell {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 1rem 0 1rem 0;
+    background-size: cover;
+}
+
+.title-Channell .container-channell {
+    width: 80%;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.384);
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+.title-Channell .list-channell ul {
+    display: flex;
+}
+
+.title-Channell a {
+    color: var(--white);
+}
+
+.title-Channell .list-channell ul li {
+    margin-right: 2rem;
+}
+
+.title-Channell .detail-channell {
+    display: flex;
+}
+
+.title-Channell .detail-channell p {
+    margin-right: 1rem;
+}
+
+.title-Channell>* {
+    color: var(--white);
+}
+
+.title-Channell .container-channell>* {
+    margin-top: 1.5rem;
+}
+
+.tab-items {
+    margin-top: 2rem !important;
+    background-color: var(--white-gray);
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    padding: 1rem;
+}
+
+.tab-items ul {
+    display: flex;
+    list-style: none;
+}
+
+.tab-items ul li {
+    margin-right: 1rem;
+    background-color: var(--dark);
+    padding: .2rem 2rem .2rem 2rem;
+    border-radius: 26px;
+    cursor: pointer;
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .tab-items ul li {
+        margin-right: 1rem;
+        background-color: var(--dark);
+        border-radius: 26px;
+        cursor: pointer;
+        color: var(--white);
+        font-size: .6rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

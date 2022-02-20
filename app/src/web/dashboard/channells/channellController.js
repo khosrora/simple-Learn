@@ -9,7 +9,6 @@ const channellController = {
     getAllChannells: async (req, res) => {
         try {
             const channells = await Channell.find().populate("user");
-            console.log(channells);
             res.render("pages/channells/channells.ejs", {
                 title: "پنل مدیریت || کانال ها",
                 bread: "کانال ها",

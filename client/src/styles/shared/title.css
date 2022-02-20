@@ -1,0 +1,58 @@
+.title-details p {
+    font-size: 2rem;
+    font-weight: bolder;
+    position: relative;
+    margin-bottom: .5rem;
+}
+
+.title-details p a {
+    font-size: 1rem !important;
+    margin-bottom: .5rem;
+    margin-right: 1rem;
+}
+
+.title-details p::after {
+    content: "";
+    width: .5rem;
+    height: 100%;
+    position: absolute;
+    background-color: var(--yellow);
+    right: -10rem;
+    transition: all .5s ease-in;
+}
+
+.title-hover:hover .title-details p::after {
+    right: -1rem;
+    transition: all .5s ease-in-out;
+}
+
+.title-hover:hover .title-details p a {
+    color: var(--yellow);
+}
+
+.title-details span {
+    opacity: .5;
+}
+
+.canals-section {
+    border: 1px solid var(--dark);
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .title-details p {
+        font-size: 1.5rem;
+        position: relative;
+        margin-bottom: .5rem;
+    }
+
+    .title-details span {
+        font-size: .7rem;
+    }
+
+    .title-details p::after {
+        right: -1rem !important;
+        transition: all .5s ease-in-out;
+    }
+}

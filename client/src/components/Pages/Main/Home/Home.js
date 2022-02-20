@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import TitleHeader from './../../layout/Header/TitleHeader';
-import BestCanals from '../BestCanals/BestCanals';
+import BestChanells from '../BestChanells/BestChanells';
 import { useDispatch } from 'react-redux';
 import { getChannells } from '../../../../redux/actions/publicAction';
 import { useSelector } from 'react-redux';
@@ -21,7 +21,7 @@ const Home = () => {
             <TitleHeader />
             {
                 publicData.topChannells
-                    ? <BestCanals />
+                    ? <BestChanells />
                     : <BestChanellsLoading />
             }
 

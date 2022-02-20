@@ -1,6 +1,7 @@
 const Course = require('../../model/course/Course');
 const Channell = require('../../model/channell/Channell');
 
+const { slug } = require('../../../utilities/helpers/slug');
 
 const channelControllerAPI = {
     createCourse: async (req, res) => {
@@ -17,7 +18,7 @@ const channelControllerAPI = {
             if (course) return res.status(400).json({ message: "دوره ای با این عنوان قبلا ثبت شده است" });
             // ! create course 
             await Course.create({
-                image, title, shortDesc, content, channell, url
+                image, slug: slug(title), title, shortDesc, content, channell, url
             })
             // ! response to client
             return res.status(200).json({ message: "آموزش بعد از تایید مدیریت نمایش داده میشود" });

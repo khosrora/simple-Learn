@@ -8,20 +8,20 @@ import "swiper/css/pagination";
 import { Pagination, Navigation } from "swiper";
 
 import CartCannal from '../../../Shared/CartCannal';
+import { Link } from 'react-router-dom';
 
 
 
 
-const BestCanals = () => {
+const BestChanells = () => {
 
     const { publicData } = useSelector(state => state);
-    console.log(publicData.topChannells);
 
     return (
-        <div className='bestCanals'>
-            <div className="details-bestcanal">
+        <div className='bests'>
+            <div className="details-bests title-hover">
                 <div className="title-details">
-                    <p>پر بازدید ترین ها</p>
+                    <p>پر بازدید ترین ها <Link to="#">مشاهده همه</Link></p>
                     <span>
                         در این وب سایت بیشترین بازدید ها از این کانال ها بوده ... !!!
                     </span>
@@ -61,8 +61,8 @@ const BestCanals = () => {
                     >
                         {
                             publicData.topChannells.map(i =>
-                                <SwiperSlide>
-                                    <CartCannal name={i.name} shortDesc={i.shortDesc} image={i.image} view={i.view} />
+                                <SwiperSlide key={i._id}>
+                                    <CartCannal slug={i.slug} name={i.name} shortDesc={i.shortDesc} image={i.image} view={i.view} />
                                 </SwiperSlide>
                             )
                         }
@@ -73,4 +73,4 @@ const BestCanals = () => {
     );
 };
 
-export default BestCanals;
+export default BestChanells;

@@ -5,6 +5,7 @@ const { courseValidation } = require('./courseValidation');
 const courseSchema = new Schema({
 
     title: { type: String, required: true, maxlength: 100 },
+    slug: { type: String, required: true },
     image: { type: String, required: true },
     url: { type: String, required: true },
     shortDesc: { type: String, required: true, maxlength: 250 },

@@ -11,8 +11,6 @@ const channelControllerAPI = {
             // ! get items
             const { userId } = req.body;
             if (!req.files) return res.status(400).json({ message: "حداقل یک عکس انتخاب کنید" })
-            // ! validation
-            Gallery.galleryValidation(req.body)
             // ! create gallery
             const images = await createGallery(req.files.images, userId);
             // ! response to client

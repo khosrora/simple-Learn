@@ -10,7 +10,6 @@ export const getChannells = (data) => async (dispatch) => {
     try {
         dispatch({ type: GLOBALTYPES.LOAD, payload: { waitChannell: true } });
         const res = await getDataAPI("publicApi", data);
-        console.log(res.data.channels);
         dispatch({
             type: GLOBALTYPES.PUBLIC, payload: {
                 topChannells: res.data.channels

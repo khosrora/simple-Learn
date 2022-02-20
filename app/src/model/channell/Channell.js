@@ -5,6 +5,7 @@ const { channellValidation } = require('./chanellValidation');
 const channelSchema = new Schema({
 
     name: { type: String, required: true, maxlength: 250 },
+    slug: { type: String, required: true },
     shortDesc: { type: String, required: true, maxlength: 500 },
     desc: { type: String, required: true, maxlength: 1000 },
     linkAparat: { type: String, required: true },

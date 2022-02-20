@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { changeImageChannell, deleteImage } from './../../../redux/actions/galleryAction';
 import MyImage from './../../Shared/LazyImage';
 
-const GalleryChannell = ({ id, url, name }) => {
+const GalleryChannell = ({ id, url, thumb, name }) => {
 
     const [cover, setCover] = useState(false)
     const [copy, setCopy] = useState(false)
@@ -38,7 +38,7 @@ const GalleryChannell = ({ id, url, name }) => {
 
     return (
         <div className="cart-gallery" >
-            <MyImage url={url} name={name} />
+            <MyImage url={thumb} name={name} />
             {
                 cover
                     ?
