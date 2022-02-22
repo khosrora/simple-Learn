@@ -1,0 +1,59 @@
+.cart-course {
+    width: 20rem;
+    border: 1px solid var(--white-gray);
+    border-radius: 4px;
+    height: 23rem;
+    background-color: hsla(0, 0%, 94%, 0.412);
+}
+
+.cart-course .img-cart-course {
+    width: 100%;
+    height: 10rem;
+}
+
+.cart-course .img-cart-course img {
+    width: 100%;
+    height: 100%;
+}
+
+.cart-course .detail-cart-course {
+    padding: 1rem;
+    border-top: 1px solid var(--white-gray);
+    border-bottom: 1px dotted var(--white-gray);
+}
+
+.cart-course .detail-cart-course .title p {
+    font-weight: bolder;
+}
+
+
+.cart-course .detail-cart-course .desc p {
+    font-size: .8rem;
+    margin-top: .5rem;
+}
+
+.cart-course .detail-cart-course .writer p {
+    font-size: .8rem;
+    margin-top: .5rem;
+}
+
+.cart-course .links-cart-course {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.cart-course .links-cart-course a {
+    background-color: var(--dark);
+    padding: .2rem 1rem .2rem 1rem;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: .8rem;
+    transition: all .3s ease-in;
+}
+
+.cart-course:hover .links-cart-course a {
+    background-color: var(--green);
+    transition: all .3s ease-in;
+}

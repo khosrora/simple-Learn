@@ -3,6 +3,8 @@ import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux"
 import { getSingleChannell } from '../../../../redux/actions/channellAction';
 import SingleChannellLoading from './../../Loading/SingleChannellLoading';
+import AboutChannell from './AboutChannell';
+import SkeltonMe from './../../Loading/SkeltonMe';
 
 
 const SingleChannell = () => {
@@ -18,6 +20,7 @@ const SingleChannell = () => {
     }, [dispatch, location.pathname])
 
     const { channell } = useSelector(state => state);
+
     return (
         <div>
             {
@@ -34,9 +37,9 @@ const SingleChannell = () => {
                             </div>
                             <p>
                                 {
-                                    channell.singleChannell.desc.length < 250
-                                        ? `${channell.singleChannell.desc}`
-                                        : `${channell.singleChannell.desc.substring(0, 250)}...`
+                                    channell.singleChannell.shortDesc.length < 250
+                                        ? `${channell.singleChannell.shortDesc}`
+                                        : `${channell.singleChannell.shortDesc.substring(0, 250)}...`
                                 }
                             </p>
                             <a href={channell.singleChannell.linkAparat} target="_blank" rel='noreferrer'>
@@ -80,11 +83,14 @@ const SingleChannell = () => {
                 </ul>
             </div>
             {
-                aboutChannell
-                    ?
-                    <p>آموزش ها</p>
+                channell.admin ?
+                    aboutChannell
+                        ?
+                        <p>آموزش ها</p>
+                        :
+                        <AboutChannell name={channell.admin.fullname} email={channell.admin.email} shortDesc={channell.singleChannell.shortDesc} desc={channell.singleChannell.desc} />
                     :
-                    <p>درباره کانال</p>
+                    <SkeltonMe count={1} height={300} />
             }
         </div>
     )

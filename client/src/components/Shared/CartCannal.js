@@ -2,9 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const CartCannal = ({ slug, name, shortDesc, image, view }) => {
+
+
     return (
-        <Link to={`channell/${slug}`}>
-            <div className="cart-canal">
+        <div className="cart-canal">
+            <Link to={`channell/${slug}`}>
                 <div className="image-canals-section">
                     <img src={image} alt={name} />
                 </div>
@@ -14,15 +16,19 @@ const CartCannal = ({ slug, name, shortDesc, image, view }) => {
                     </p>
                     <br />
                     <span>
-                        {shortDesc}
+                        {
+                            shortDesc.length < 100
+                                ? `${shortDesc}`
+                                : `${shortDesc.substring(0, 100)}...`
+                        }
                     </span>
                     <div className="detail-cart-canal">
                         <p> بازدید : {view}</p>
                         <p> ویدیو منتشر شده : 20</p>
                     </div>
                 </div>
-            </div>
-        </Link>
+            </Link>
+        </div>
     );
 };
 

@@ -3,6 +3,7 @@
     font-weight: bolder;
     position: relative;
     margin-bottom: .5rem;
+    color: var(--green);
 }
 
 .title-details p a {
@@ -35,7 +36,6 @@
 }
 
 .canals-section {
-    border: 1px solid var(--dark);
     padding: 1rem;
     border-radius: 4px;
 }

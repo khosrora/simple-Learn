@@ -12,7 +12,8 @@ const courseSchema = new Schema({
     content: { type: String, required: true },
     view: { type: Number, default: 0 },
     permission: { type: Boolean, default: false },
-    channell: { type: Schema.Types.ObjectId, required: true, ref: "Channell" }
+    channell: { type: Schema.Types.ObjectId, required: true, ref: "Channell" },
+    category: { type: Schema.Types.ObjectId, required: true, ref: "Category" }
 
 }, { timestamps: true });
 

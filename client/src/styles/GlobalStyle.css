@@ -161,6 +161,10 @@ form button {
 @import url("./shared/title.css");
 /* ! single channell */
 @import url("./singleChannell.css");
+/* ! about Channell */
+@import url("./aboutChannell.css");
+/* ! cart course */
+@import url("./shared/cartcourse.css");
 
 
 @media only screen and (max-width: 600px) {

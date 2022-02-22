@@ -3,7 +3,7 @@ import JoditEditor from "jodit-react";
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { createCourse } from '../../../redux/actions/courseAction';
-import { successMessage } from './../../utilities/Toastify';
+import { errorMessage } from './../../utilities/Toastify';
 
 const initial = {
     image: '',
@@ -12,6 +12,7 @@ const initial = {
     shortDesc: '',
     content: '',
     channell: '',
+    category: ''
 }
 
 const CreateCourse = () => {
@@ -23,7 +24,7 @@ const CreateCourse = () => {
         readonly: false // all options from https://xdsoft.net/jodit/doc/
     }
 
-    const { User } = useSelector(state => state)
+    const { User, Categories } = useSelector(state => state)
 
     const onChangeInput = e => {
         const { name, value } = e.target;
@@ -38,9 +39,9 @@ const CreateCourse = () => {
 
             course.content = content;
             course.channell = User.channell._id;
-            
-            if (!course.image || !course.title || !course.shortDesc || !course.content) {
-                return successMessage("لطفا تمام مقادیر را کامل کنید");
+
+            if (!course.image || !course.title || !course.shortDesc || !course.content || !course.category) {
+                return errorMessage("لطفا تمام مقادیر را کامل کنید");
             }
 
             await dispatch(createCourse(course));
@@ -70,6 +71,16 @@ const CreateCourse = () => {
                     <div className="form-group">
                         <p>توضیحات کوتاه :</p>
                         <textarea className="form-input" name='shortDesc' type="text" value={course.shortDesc} onChange={onChangeInput} placeholder="عنوان آموزش" />
+                    </div>
+                    <div className="form-group">
+                        <select className="form-input" name='category' value={course.category} onChange={onChangeInput} placeholder="دسته بندی">
+                            <option value="">لطفا یک دسته بندی را انتخاب کنید</option>
+                            {
+                                Categories.categories.map(i => {
+                                    if (i.parent === null) return <option key={i._id} value={i._id}>{i.name}</option>
+                                })
+                            }
+                        </select>
                     </div>
                     <div className="form-group">
                         <p>متن آموزش :</p>

@@ -1,0 +1,23 @@
+.aboutChannell {
+    width: 80%;
+    border-radius: 4px;
+    margin: auto;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.aboutChannell .detil-Channell {
+    width: 80%;
+    background-color: var(--white-gray);
+    padding: 1rem;
+    margin: auto;
+    border-radius: 4px;
+}
+
+.aboutChannell .detil-Channell hr {
+    margin: 1rem 0 1rem 0;
+}
+
+.aboutChannell .detil-Channell p {
+    margin-top: 1rem;
+}

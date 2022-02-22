@@ -19,9 +19,6 @@ const userControllerAPI = {
     }
 }
 
-const createAccessToken = (payload) => {
-    return jwt.sign(payload, process.env.JWT_TOKEN, { expiresIn: "30d" })
-}
 
 
 module.exports = userControllerAPI;

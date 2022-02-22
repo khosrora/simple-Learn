@@ -8,7 +8,7 @@ const publicControllerAPI = {
     getPublics: async (req, res) => {
         try {
             // ! get items
-            const channels = await Channell.find({ permission: true });
+            const channels = await Channell.find({ permission: true }).limit(8);
             return res.status(200).json({
                 channels
             })

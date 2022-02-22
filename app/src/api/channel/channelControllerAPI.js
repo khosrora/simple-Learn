@@ -79,13 +79,15 @@ const channelControllerAPI = {
             const slug = req.params.slug;
             // ! find channell
             const channell = await Channell.findOne({ slug });
+            const admin = await User.findOne({ _id: channell.user });
             if (!channell) return res.status(400).json({ message: "کانال مورد نظر پیدا نشد" });
             // ! edit channell
             channell.view += 1;
             await channell.save();
             // ! response to client
             return res.status(200).json({
-                channell
+                channell,
+                admin
             })
         } catch (err) {
             return res.status(500).json({ message: err.message })

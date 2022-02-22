@@ -7,7 +7,7 @@ const channelControllerAPI = {
     createCourse: async (req, res) => {
         try {
             // ! get items
-            const { image, title, shortDesc, content, channell, url } = req.body;
+            const { image, title, shortDesc, content, channell, url, category } = req.body;
             // ! validation
             await Course.courseValidate(req.body)
             // ! find channell
@@ -18,7 +18,7 @@ const channelControllerAPI = {
             if (course) return res.status(400).json({ message: "دوره ای با این عنوان قبلا ثبت شده است" });
             // ! create course 
             await Course.create({
-                image, slug: slug(title), title, shortDesc, content, channell, url
+                image, slug: slug(title), title, shortDesc, content, channell, url, category
             })
             // ! response to client
             return res.status(200).json({ message: "آموزش بعد از تایید مدیریت نمایش داده میشود" });

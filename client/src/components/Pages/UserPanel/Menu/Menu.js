@@ -8,7 +8,6 @@ const Menu = () => {
     const [Menu, setMenu] = useState(true);
 
     const { User } = useSelector(state => state)
-    console.log(User.channell);
     const dispatch = useDispatch();
 
     useEffect(() => {

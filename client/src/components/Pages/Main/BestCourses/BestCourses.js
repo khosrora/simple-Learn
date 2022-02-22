@@ -1,5 +1,4 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useSelector } from 'react-redux';
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -7,20 +6,19 @@ import "swiper/css/pagination";
 
 import { Pagination, Navigation } from "swiper";
 
-import CartCannal from '../../../Shared/CartCannal';
 import Title from "../../../Shared/Title";
+import CartCourse from './../../../Shared/CartCourse';
 
 
 
 
-const BestChanells = () => {
+const BestCourses = () => {
 
-    const { publicData } = useSelector(state => state);
 
     return (
         <div className='bests'>
             <div className="details-bests title-hover">
-                <Title title="پربازدید ترین ها" link="/allChannells" desc="در این وب سایت بیشترین بازدید ها از این کانال ها بوده ... !!!" />
+                <Title title="پربازدید ترین آموزش ها" link="/allCourses" desc="در این وب سایت بیشترین بازدید ها از این آموزش ها بوده ... !!!" />
                 <div className="canals-section">
                     <Swiper
                         slidesPerGroup={3}
@@ -54,13 +52,30 @@ const BestChanells = () => {
                             },
                         }}
                     >
-                        {
-                            publicData.topChannells.map(i =>
-                                <SwiperSlide key={i._id}>
-                                    <CartCannal slug={i.slug} name={i.name} shortDesc={i.shortDesc} image={i.image} view={i.view} />
-                                </SwiperSlide>
-                            )
-                        }
+                        <SwiperSlide>
+                            <CartCourse />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <CartCourse />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <CartCourse />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <CartCourse />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <CartCourse />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <CartCourse />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <CartCourse />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <CartCourse />
+                        </SwiperSlide>
                     </Swiper>
                 </div>
             </div>
@@ -68,4 +83,4 @@ const BestChanells = () => {
     );
 };
 
-export default BestChanells;
+export default BestCourses;

@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { getChannells } from '../../../../redux/actions/publicAction';
 import { useSelector } from 'react-redux';
 import BestChanellsLoading from './../../Loading/BestChanellsLoading';
+import BestCourses from '../BestCourses/BestCourses';
 
 const Home = () => {
 
@@ -24,6 +25,7 @@ const Home = () => {
                     ? <BestChanells />
                     : <BestChanellsLoading />
             }
+            <BestCourses />
 
         </div>
     );
