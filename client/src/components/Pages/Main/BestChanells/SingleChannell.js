@@ -5,6 +5,7 @@ import { getSingleChannell } from '../../../../redux/actions/channellAction';
 import SingleChannellLoading from './../../Loading/SingleChannellLoading';
 import AboutChannell from './AboutChannell';
 import SkeltonMe from './../../Loading/SkeltonMe';
+import CoursesChannell from './CoursesChannell';
 
 
 const SingleChannell = () => {
@@ -14,12 +15,16 @@ const SingleChannell = () => {
     const dispatch = useDispatch();
 
     const [aboutChannell, setAboutChannell] = useState(false);
+    const [sort, setSort] = useState(false);
+    
 
     useEffect(() => {
         dispatch(getSingleChannell(location.pathname))
     }, [dispatch, location.pathname])
 
-    const { channell } = useSelector(state => state);
+    const { channell, publicData } = useSelector(state => state);
+
+
 
     return (
         <div>
@@ -58,15 +63,15 @@ const SingleChannell = () => {
                     :
                     <SingleChannellLoading />
             }
-
+ 
             <div className="tab-items">
                 <ul>
                     {
                         aboutChannell
                             ?
                             <>
-                                <li>قدیمی ترین ها</li>
-                                <li>جدیدترین</li>
+                                <li onClick={() => setSort(true)}>قدیمی ترین ها</li>
+                                <li onClick={() => setSort(false)}>جدیدترین</li>
                             </>
                             :
                             null
@@ -86,7 +91,7 @@ const SingleChannell = () => {
                 channell.admin ?
                     aboutChannell
                         ?
-                        <p>آموزش ها</p>
+                        <CoursesChannell channellId={channell.singleChannell._id} courses={publicData.topCourses} sort={sort} />
                         :
                         <AboutChannell name={channell.admin.fullname} email={channell.admin.email} shortDesc={channell.singleChannell.shortDesc} desc={channell.singleChannell.desc} />
                     :

@@ -12,7 +12,8 @@ export const getChannells = (data) => async (dispatch) => {
         const res = await getDataAPI("publicApi", data);
         dispatch({
             type: GLOBALTYPES.PUBLIC, payload: {
-                topChannells: res.data.channels
+                topChannells: res.data.channels,
+                topCourses: res.data.courses
             }
         });
         dispatch({ type: GLOBALTYPES.LOAD, payload: { waitChannell: false } });

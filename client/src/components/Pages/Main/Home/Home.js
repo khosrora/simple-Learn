@@ -4,8 +4,8 @@ import BestChanells from '../BestChanells/BestChanells';
 import { useDispatch } from 'react-redux';
 import { getChannells } from '../../../../redux/actions/publicAction';
 import { useSelector } from 'react-redux';
-import BestChanellsLoading from './../../Loading/BestChanellsLoading';
 import BestCourses from '../BestCourses/BestCourses';
+import SkeltonMe from './../../Loading/SkeltonMe';
 
 const Home = () => {
 
@@ -23,9 +23,13 @@ const Home = () => {
             {
                 publicData.topChannells
                     ? <BestChanells />
-                    : <BestChanellsLoading />
+                    : <SkeltonMe count={2} height={300} />
             }
-            <BestCourses />
+            {
+                publicData.topCourses
+                    ? <BestCourses topCourses={publicData.topCourses} />
+                    : <SkeltonMe count={2} height={100} />
+            }
 
         </div>
     );

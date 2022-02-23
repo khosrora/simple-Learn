@@ -8,12 +8,7 @@
 
 .cart-course .img-cart-course {
     width: 100%;
-    height: 10rem;
-}
-
-.cart-course .img-cart-course img {
-    width: 100%;
-    height: 100%;
+    height: 10rem !important;
 }
 
 .cart-course .detail-cart-course {
@@ -56,4 +51,15 @@
 .cart-course:hover .links-cart-course a {
     background-color: var(--green);
     transition: all .3s ease-in;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .cart-course {
+        width: 17rem;
+        border: 1px solid var(--white-gray);
+        border-radius: 4px;
+        height: 23rem;
+        background-color: hsla(0, 0%, 94%, 0.412);
+    }
 }

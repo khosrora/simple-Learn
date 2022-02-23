@@ -1,0 +1,9 @@
+.courses-userPanel {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.courses-userPanel .cart-course {
+    margin-right: .5rem;
+}

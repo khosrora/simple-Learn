@@ -94,6 +94,8 @@
 }
 
 
+
+
 @media only screen and (max-width: 1000px) {
 
     .open-menu {
@@ -115,7 +117,5 @@
         margin: auto;
         overflow-y: hidden;
     }
-
-
 
 }

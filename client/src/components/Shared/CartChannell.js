@@ -1,17 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import MyImage from './LazyImage';
 
-const CartCannal = ({ slug, name, shortDesc, image, view }) => {
+const CartChannell = ({ slug, name, shortDesc, image, view }) => {
 
 
     return (
-        <div className="cart-canal">
+        <div className="cart-channell">
             <Link to={`channell/${slug}`}>
                 <div className="image-canals-section">
-                    <img src={image} alt={name} />
+                    <MyImage url={image} name={name} />
                 </div>
                 <div className="detail-image-section">
-                    <p className='title-detail-cart-canal'>
+                    <p className='title-detail-cart-channell'>
                         {name}
                     </p>
                     <br />
@@ -22,7 +23,7 @@ const CartCannal = ({ slug, name, shortDesc, image, view }) => {
                                 : `${shortDesc.substring(0, 100)}...`
                         }
                     </span>
-                    <div className="detail-cart-canal">
+                    <div className="detail-cart-channell">
                         <p> بازدید : {view}</p>
                         <p> ویدیو منتشر شده : 20</p>
                     </div>
@@ -32,4 +33,4 @@ const CartCannal = ({ slug, name, shortDesc, image, view }) => {
     );
 };
 
-export default CartCannal;
+export default CartChannell;

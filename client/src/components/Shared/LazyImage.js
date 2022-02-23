@@ -7,6 +7,7 @@ const MyImage = ({ url, name }) => (
         alt={name}
         effect="blur"
         src={url}
+        style={{width : "100%" , height : "100%"}}
     />
 );
 

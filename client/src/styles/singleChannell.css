@@ -7,6 +7,39 @@
     background-size: cover;
 }
 
+.search-singleChannell {
+    width: 80%;
+    margin: auto;
+    padding: 1rem;
+    background-color: var(--white-gray);
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.search-singleChannell .details-search {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 70%;
+    margin: auto;
+    border-radius: 4px;
+}
+
+.search-singleChannell .details-search input {
+    width: 90%;
+    padding: .5rem;
+    border-radius: 4px;
+    background-color: var(--white-gray);
+}
+
+.search-singleChannell .details-search svg {
+    position: absolute;
+    left: 4rem;
+    top: .7rem;
+    font-size: 1.3rem;
+    opacity: .3;
+}
+
 .title-Channell .container-channell {
     width: 80%;
     margin: auto;
@@ -71,6 +104,28 @@
     justify-content: center;
     align-items: center;
 }
+
+.courseChannell {
+    width: 80%;
+    background-color: var(--white-gray);
+    margin: auto;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 4px;
+}
+
+.courses {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.courses .cart-course {
+    background-color: var(--white) !important;
+    margin-top: .5rem;
+    margin-right: .5rem;
+}
+
 
 
 @media only screen and (max-width: 600px) {

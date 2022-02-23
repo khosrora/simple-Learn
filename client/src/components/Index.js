@@ -16,6 +16,7 @@ import CreateChannell from './Pages/UserPanel/CreateChannell';
 import CreateGallery from './Pages/UserPanel/CreateGallery';
 import CreateCourse from './Pages/UserPanel/CreateCourse';
 import SingleChannell from './Pages/Main/BestChanells/SingleChannell';
+import CoursesChannell from './Pages/UserPanel/CoursesChannell';
 
 const Index = () => {
 
@@ -26,7 +27,6 @@ const Index = () => {
     useEffect(() => {
         dispatch(refreshToken());
     }, [dispatch])
-
 
 
     return (
@@ -51,6 +51,7 @@ const Index = () => {
                                         <Route exact path="/userPanel/createChannel" component={CreateChannell} />
                                         <Route exact path="/userPanel/createCourse" component={CreateCourse} />
                                         <Route exact path="/userPanel/createGallery" component={CreateGallery} />
+                                        <Route exact path="/userPanel/coursesChannell" component={CoursesChannell} />
                                         <Route exact path="/userPanel" component={Description} />
                                     </Switch>
                                 </UserPanel>

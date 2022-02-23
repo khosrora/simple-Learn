@@ -44,7 +44,7 @@ const Menu = () => {
                         <Link to="/userpanel/detailUser">اطلاعات شما</Link>
                     </li>
                     <li>
-                        <Link to="#">ویدیو های ثبت شده</Link>
+                        <Link to="/userpanel/coursesChannell">ویدیو های ثبت شده</Link>
                     </li>
                     <li>
                         <Link to="#">پیام ها</Link>

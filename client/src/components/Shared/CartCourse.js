@@ -1,20 +1,26 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import Jalali from './Jalali';
+import MyImage from './LazyImage';
 
-const CartCourse = () => {
+const CartCourse = ({ image, title, desc, date }) => {
+
     return (
         <div className="cart-course">
             <div className="img-cart-course">
-                <img src="./assets/images/1.webp" alt="" />
+                <MyImage url={image} name={title} />
             </div>
             <div className="detail-cart-course">
                 <div className="title">
-                    <h4>آموزش برنامه نویسی</h4>
+                    <h4>{title}</h4>
                 </div>
                 <div className="desc">
                     <p>
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
+                        {
+                            desc.length < 100
+                                ? `${desc}`
+                                : `${desc.substring(0, 100)}...`
+                        }
                     </p>
                 </div>
                 <div className="writer">
@@ -22,8 +28,8 @@ const CartCourse = () => {
                 </div>
             </div>
             <div className="links-cart-course">
-                <Link>مشاهده بیشتر</Link>
-                <p>20 بهمن 1400</p>
+                <Link to={"/"}>مشاهده بیشتر</Link>
+                <Jalali date={date} />
             </div>
         </div>
     )

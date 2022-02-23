@@ -5,7 +5,6 @@ const AboutChannell = ({ name, email, shortDesc, desc }) => {
 
     return (
         <div div className='aboutChannell'>
-
             <div div className="detil-Channell" >
                 <p>ادمین کانال : <span>{name}</span></p>
                 <p>پست الکترونیک : <span>{email}</span></p>
@@ -21,8 +20,6 @@ const AboutChannell = ({ name, email, shortDesc, desc }) => {
                     {desc}
                 </p>
             </div >
-
-
         </div >
     )
 }

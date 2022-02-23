@@ -7,7 +7,7 @@ import "swiper/css/pagination";
 
 import { Pagination, Navigation } from "swiper";
 
-import CartCannal from '../../../Shared/CartCannal';
+import CartChannell from '../../../Shared/CartChannell';
 import Title from "../../../Shared/Title";
 
 
@@ -57,7 +57,7 @@ const BestChanells = () => {
                         {
                             publicData.topChannells.map(i =>
                                 <SwiperSlide key={i._id}>
-                                    <CartCannal slug={i.slug} name={i.name} shortDesc={i.shortDesc} image={i.image} view={i.view} />
+                                    <CartChannell  slug={i.slug} name={i.name} shortDesc={i.shortDesc} image={i.image} view={i.view} />
                                 </SwiperSlide>
                             )
                         }

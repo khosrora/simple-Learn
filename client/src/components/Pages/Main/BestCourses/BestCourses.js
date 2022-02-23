@@ -4,7 +4,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import { Pagination, Navigation } from "swiper";
 
 import Title from "../../../Shared/Title";
 import CartCourse from './../../../Shared/CartCourse';
@@ -12,7 +11,7 @@ import CartCourse from './../../../Shared/CartCourse';
 
 
 
-const BestCourses = () => {
+const BestCourses = ({ topCourses }) => {
 
 
     return (
@@ -24,10 +23,6 @@ const BestCourses = () => {
                         slidesPerGroup={3}
                         loop={false}
                         loopFillGroupWithBlank={true}
-                        pagination={{
-                            clickable: true,
-                        }}
-                        modules={[Pagination, Navigation]}
                         className="mySwiper"
                         breakpoints={{
                             0: {
@@ -43,39 +38,22 @@ const BestCourses = () => {
                                 spaceBetween: 40,
                             },
                             1024: {
-                                slidesPerView: 4,
+                                slidesPerView: 3,
                                 spaceBetween: 30,
                             },
                             1500: {
-                                slidesPerView: 5,
+                                slidesPerView: 4,
                                 spaceBetween: 40,
                             },
                         }}
                     >
-                        <SwiperSlide>
-                            <CartCourse />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <CartCourse />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <CartCourse />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <CartCourse />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <CartCourse />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <CartCourse />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <CartCourse />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <CartCourse />
-                        </SwiperSlide>
+                        {
+                            topCourses.map(i =>
+                                <SwiperSlide key={i._id}>
+                                    <CartCourse image={i.image} title={i.title} desc={i.shortDesc} date={i.createdAt} />
+                                </SwiperSlide>
+                            )
+                        }
                     </Swiper>
                 </div>
             </div>
