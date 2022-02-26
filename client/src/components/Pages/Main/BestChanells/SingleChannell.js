@@ -6,6 +6,7 @@ import SingleChannellLoading from './../../Loading/SingleChannellLoading';
 import AboutChannell from './AboutChannell';
 import SkeltonMe from './../../Loading/SkeltonMe';
 import CoursesChannell from './CoursesChannell';
+import Jalali from '../../../Shared/Jalali';
 
 
 const SingleChannell = () => {
@@ -16,7 +17,7 @@ const SingleChannell = () => {
 
     const [aboutChannell, setAboutChannell] = useState(false);
     const [sort, setSort] = useState(false);
-    
+
 
     useEffect(() => {
         dispatch(getSingleChannell(location.pathname))
@@ -24,14 +25,14 @@ const SingleChannell = () => {
 
     const { channell, publicData } = useSelector(state => state);
 
-
+    console.log(channell)
 
     return (
         <div>
             {
                 channell.singleChannell
                     ?
-                    <div className='title-Channell' style={{ backgroundImage: `url('${channell.singleChannell.image}')` }}>
+                    <div className='title-Channell' style={{ backgroundImage: `url('${channell.singleChannell.image ? channell.singleChannell.image.image : "http://localhost:4000/uploads/images/channell/default.png"}')` }}>
                         <div className="container-channell">
                             <h1>{channell.singleChannell.name}</h1>
                             <div className="list-channell">
@@ -54,16 +55,14 @@ const SingleChannell = () => {
                                 <p>
                                     {channell.singleChannell.view} بازدید
                                 </p>
-                                <p>
-                                    تاریخ ثبت : 9 / 10 / 1399
-                                </p>
+                                <Jalali date={channell.singleChannell.createdAt} />
                             </div>
                         </div>
                     </div>
                     :
                     <SingleChannellLoading />
             }
- 
+
             <div className="tab-items">
                 <ul>
                     {

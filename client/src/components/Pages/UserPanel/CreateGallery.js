@@ -55,7 +55,7 @@ const CreateGallery = () => {
                                 :
                                 gallery.allGallery ?
                                     gallery.allGallery.map(i => (
-                                        <GalleryChannell key={i._id} id={i._id} url={i.image} thumb={i.thumb} name={i.name} />
+                                        <GalleryChannell key={i._id} id={i._id} url={i.image}  name={i.name} />
                                     ))
                                     :
                                     <div className="alert">

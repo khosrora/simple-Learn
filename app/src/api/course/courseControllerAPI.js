@@ -26,7 +26,36 @@ const channelControllerAPI = {
             return res.status(500).json({ message: err.message })
         }
     },
+    editCourse: async (req, res) => {
+        try {
+            // ! get items
+            const { _id, image, title, url, shortDesc, content, category } = req.body;
+            // ! validation
+            await Course.courseValidate(req.body)
+            // ! find and update
+            await Course.findByIdAndUpdate(_id, {
+                image, slug: slug(title), title, shortDesc, content, url, category
+            });
+            // ! send response to client
+            return res.status(200).json({ message: "آموزش با موفقیت ویرایش شد" })
 
+        } catch (err) {
+            return res.status(500).json({ message: err.message })
+        }
+    },
+    deleteCourse: async (req, res) => {
+        try {
+            // ! get items
+            const { courseId } = req.body;
+            // ! find and delete
+            await Course.findByIdAndDelete({ _id: courseId })
+            // ! send response to client
+            return res.status(200).json({ message: "آموزش با موفقیت حذف شد" })
+
+        } catch (err) {
+            return res.status(500).json({ message: err.message })
+        }
+    },
 }
 
 

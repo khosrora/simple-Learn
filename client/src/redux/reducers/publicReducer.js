@@ -1,4 +1,5 @@
-import { GLOBALTYPES } from '../actions/globalTypes';
+import { EditData, DeleteData, GLOBALTYPES } from '../actions/globalTypes';
+import { COURSE_TYPES } from './../actions/courseAction';
 
 
 
@@ -8,6 +9,16 @@ const publicReducer = (state = initialState, action) => {
     switch (action.type) {
         case GLOBALTYPES.PUBLIC:
             return action.payload;
+        case COURSE_TYPES.EDIT_COURSE:
+            return {
+                ...state,
+                topCourses: EditData(state.topCourses, action.payload._id, action.payload)
+            }
+        case COURSE_TYPES.DELETE_COURSE:
+            return {
+                ...state,
+                topCourses: DeleteData(state.topCourses, action.payload.id)
+            }
         default:
             return state;
     }

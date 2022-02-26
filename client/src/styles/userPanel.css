@@ -71,6 +71,7 @@
     background-color: var(--white);
     border-left: 1px solid var(--dark);
     padding: 1rem;
+    z-index: 999;
 }
 
 .userpanel-List-mobile ul {

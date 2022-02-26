@@ -17,5 +17,31 @@ const channelControllerAPI = require('./courseControllerAPI');
  */
 router.post("/createCourse", channelControllerAPI.createCourse)
 
+// ? method ===> POST
+// ? desc ===> edit course
+/**
+ * @swagger
+ * /editcourse:
+ *  post:
+ *    description: edit course 
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ */
+router.post("/editCourse", channelControllerAPI.editCourse)
+
+// ? method ===> POST
+// ? desc ===> delete course
+/**
+ * @swagger
+ * /deletecourse:
+ *  post:
+ *    description: delete course 
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ */
+router.post("/deleteCourse", channelControllerAPI.deleteCourse)
+
 
 module.exports = router;

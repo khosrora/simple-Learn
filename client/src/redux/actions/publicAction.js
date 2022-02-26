@@ -6,10 +6,10 @@ export const CHANNELL_TYPES = {
     CHANNELL_GET: "CHANNELL_GET",
 }
 
-export const getChannells = (data) => async (dispatch) => {
+export const getPublics = () => async (dispatch) => {
     try {
         dispatch({ type: GLOBALTYPES.LOAD, payload: { waitChannell: true } });
-        const res = await getDataAPI("publicApi", data);
+        const res = await getDataAPI("publicApi");
         dispatch({
             type: GLOBALTYPES.PUBLIC, payload: {
                 topChannells: res.data.channels,

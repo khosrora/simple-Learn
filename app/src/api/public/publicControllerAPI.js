@@ -9,8 +9,8 @@ const publicControllerAPI = {
     getPublics: async (req, res) => {
         try {
             // ! get items
-            const channels = await Channell.find({ permission: true }).limit(8);
-            const courses = await Course.find({ permission: true }).limit(8);
+            const channels = await Channell.find({ permission: true }).populate("image");
+            const courses = await Course.find({ permission: true }).populate("image");
             return res.status(200).json({
                 channels,
                 courses

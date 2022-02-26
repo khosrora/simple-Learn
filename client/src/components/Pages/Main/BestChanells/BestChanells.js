@@ -55,9 +55,9 @@ const BestChanells = () => {
                         }}
                     >
                         {
-                            publicData.topChannells.map(i =>
+                            publicData.topChannells.slice(0, 8).map(i =>
                                 <SwiperSlide key={i._id}>
-                                    <CartChannell  slug={i.slug} name={i.name} shortDesc={i.shortDesc} image={i.image} view={i.view} />
+                                    <CartChannell slug={i.slug} name={i.name} shortDesc={i.shortDesc} image={i.image ? i.image.thumb : "http://localhost:4000/uploads/images/channell/default.png"} view={i.view} />
                                 </SwiperSlide>
                             )
                         }

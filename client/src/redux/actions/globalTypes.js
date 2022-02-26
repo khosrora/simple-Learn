@@ -7,14 +7,15 @@ export const GLOBALTYPES = {
     PUBLIC: "PUBLIC"
 }
 
-// export const EditData = (data, id, post) => {
-//     const newData = data.map(item =>
-//         (item._id === id ? post : item)
-//     )
-//     return newData;
-// }
+export const EditData = (data, id, post) => {
+    const newData = data.map(item =>
+        (item._id === id ? post : item)
+    )
+    return newData;
+}
 
 export const DeleteData = (data, id) => {
+    console.log(data, id)
     const newData = data.filter(item => item._id !== id)
     return newData;
 }

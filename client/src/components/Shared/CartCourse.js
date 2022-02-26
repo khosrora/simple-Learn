@@ -2,8 +2,24 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import Jalali from './Jalali';
 import MyImage from './LazyImage';
+import { useDispatch } from 'react-redux';
+import { errorMessage } from '../utilities/Toastify';
+import { deleteCourse } from "../../redux/actions/courseAction"
 
-const CartCourse = ({ image, title, desc, date }) => {
+
+
+const CartCourse = ({ image, title, desc, date, del, id }) => {
+
+    const dispatch = useDispatch();
+
+    const deleteCours = async (id) => {
+        try {
+            await dispatch(deleteCourse(id))
+        } catch (err) {
+            console.log(err);
+            errorMessage("لطفا دوباره امتحان کنید")
+        }
+    }
 
     return (
         <div className="cart-course">
@@ -28,7 +44,16 @@ const CartCourse = ({ image, title, desc, date }) => {
                 </div>
             </div>
             <div className="links-cart-course">
-                <Link to={"/"}>مشاهده بیشتر</Link>
+                {
+                    del
+                        ?
+                        <>
+                            <div className="del" onClick={() => deleteCours(id)}><i className='fas fa-trash'></i></div>
+                            <Link to={"/"}>مشاهده بیشتر</Link>
+                        </>
+                        :
+                        <Link to={"/"}>مشاهده بیشتر</Link>
+                }
                 <Jalali date={date} />
             </div>
         </div>

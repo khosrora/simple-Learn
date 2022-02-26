@@ -48,9 +48,9 @@ const BestCourses = ({ topCourses }) => {
                         }}
                     >
                         {
-                            topCourses.map(i =>
+                            topCourses.slice(0 , 8).map(i =>
                                 <SwiperSlide key={i._id}>
-                                    <CartCourse image={i.image} title={i.title} desc={i.shortDesc} date={i.createdAt} />
+                                    <CartCourse image={i.image.thumb} title={i.title} desc={i.shortDesc} date={i.createdAt} />
                                 </SwiperSlide>
                             )
                         }

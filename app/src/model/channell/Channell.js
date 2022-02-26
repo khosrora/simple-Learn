@@ -9,8 +9,8 @@ const channelSchema = new Schema({
     shortDesc: { type: String, required: true, maxlength: 500 },
     desc: { type: String, required: true, maxlength: 1000 },
     linkAparat: { type: String, required: true },
-    image: { type: String, required: false },
     view: { type: Number, default: 0 },
+    image: { type: Schema.Types.ObjectId, ref: "Gallery" },
     permission: { type: Boolean, default: false },
     user: { type: Schema.Types.ObjectId, required: true, ref: "User" }
 

@@ -6,4 +6,17 @@
 
 .courses-userPanel .cart-course {
     margin-right: .5rem;
+    position: relative;
 }
+
+.courses-userPanel .edit {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--red);
+    color: var(--white);
+    width: 3rem;
+    height: 2rem;
+}
+

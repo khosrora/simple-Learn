@@ -4,7 +4,7 @@ import MyImage from './LazyImage';
 
 const CartChannell = ({ slug, name, shortDesc, image, view }) => {
 
-
+    console.log(image);
     return (
         <div className="cart-channell">
             <Link to={`channell/${slug}`}>
@@ -18,9 +18,9 @@ const CartChannell = ({ slug, name, shortDesc, image, view }) => {
                     <br />
                     <span>
                         {
-                            shortDesc.length < 100
+                            shortDesc.length < 50
                                 ? `${shortDesc}`
-                                : `${shortDesc.substring(0, 100)}...`
+                                : `${shortDesc.substring(0, 90)}...`
                         }
                     </span>
                     <div className="detail-cart-channell">

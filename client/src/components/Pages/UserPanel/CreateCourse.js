@@ -3,7 +3,7 @@ import JoditEditor from "jodit-react";
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { createCourse } from '../../../redux/actions/courseAction';
-import { errorMessage } from './../../utilities/Toastify';
+import { errorMessage } from '../../utilities/Toastify';
 
 const initial = {
     image: '',

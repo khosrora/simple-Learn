@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from "react-redux"
 import { changeImageChannell, deleteImage } from './../../../redux/actions/galleryAction';
 import MyImage from './../../Shared/LazyImage';
 
-const GalleryChannell = ({ id, url, thumb, name }) => {
+const GalleryChannell = ({ id, url, name }) => {
+
 
     const [cover, setCover] = useState(false)
     const [copy, setCopy] = useState(false)
@@ -12,10 +13,10 @@ const GalleryChannell = ({ id, url, thumb, name }) => {
 
     const dispatch = useDispatch();
 
-    const setAsCover = async (link) => {
+    const setAsCover = async (idImage) => {
         try {
             const data = {
-                link,
+                idImage,
                 user: User.user._id
             }
             dispatch(changeImageChannell(data))
@@ -38,15 +39,15 @@ const GalleryChannell = ({ id, url, thumb, name }) => {
 
     return (
         <div className="cart-gallery" >
-            <MyImage url={thumb} name={name} />
+            <MyImage url={url} name={name} />
             {
                 cover
                     ?
-                    <p onClick={() => setAsCover(url)}>
+                    <p onClick={() => setAsCover(id)}>
                         {Load.sendData ? "در حال تغییر" : "انتخاب کاور کانال"}
                     </p>
                     :
-                    <p onClick={() => copyLink(url)}>
+                    <p onClick={() => copyLink(id)}>
                         {copy ? "کپی شد !!! " : "کپی لینک "}
                     </p>
             }

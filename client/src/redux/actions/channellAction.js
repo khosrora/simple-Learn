@@ -45,7 +45,7 @@ export const getSingleChannell = (data) => async (dispatch) => {
         dispatch({
             type: CHANNELL_TYPES.GET_CHANNELL, payload: {
                 singleChannell: res.data.channell,
-                admin : res.data.admin
+                admin: res.data.admin
             }
         });
         successMessage(res.data);
