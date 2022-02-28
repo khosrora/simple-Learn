@@ -31,6 +31,9 @@ const Menu = () => {
                                 <li>
                                     <Link to="/userpanel/createGallery">گالری تصاویر</Link>
                                 </li>
+                                <li>
+                                    <Link to="/userpanel/coursesChannell">ویدیو های ثبت شده</Link>
+                                </li>
                             </>
                             :
                             <li>
@@ -43,9 +46,7 @@ const Menu = () => {
                     <li>
                         <Link to="/userpanel/detailUser">اطلاعات شما</Link>
                     </li>
-                    <li>
-                        <Link to="/userpanel/coursesChannell">ویدیو های ثبت شده</Link>
-                    </li>
+
                     <li>
                         <Link to="#">پیام ها</Link>
                     </li>

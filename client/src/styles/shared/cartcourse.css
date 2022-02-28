@@ -8,10 +8,8 @@
 
 .cart-course .img-cart-course {
     width: 100%;
-    height: 50%;
+    height: 10rem;
     overflow: hidden;
-    /* height: 10rem !important; */
-    /* min-height: 10rem !important; */
 }
 
 .cart-course .detail-cart-course {

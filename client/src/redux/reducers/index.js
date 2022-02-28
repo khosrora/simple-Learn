@@ -5,6 +5,7 @@ import Categories from "./categoriesReducer"
 import gallery from './galleryReducer';
 import publicData from './publicReducer';
 import channell from './channellReducer';
+import course from './courseReducer';
 
 
 export default combineReducers({
@@ -13,5 +14,6 @@ export default combineReducers({
     Categories,
     gallery,
     publicData,
-    channell
+    channell,
+    course
 })

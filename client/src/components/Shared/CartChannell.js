@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MyImage from './LazyImage';
+import Jalali from './Jalali';
 
-const CartChannell = ({ slug, name, shortDesc, image, view }) => {
+const CartChannell = ({ slug, name, shortDesc, image, view, createdAt }) => {
 
-    console.log(image);
     return (
         <div className="cart-channell">
             <Link to={`channell/${slug}`}>
@@ -18,14 +18,18 @@ const CartChannell = ({ slug, name, shortDesc, image, view }) => {
                     <br />
                     <span>
                         {
-                            shortDesc.length < 50
+                            shortDesc.length < 90
                                 ? `${shortDesc}`
                                 : `${shortDesc.substring(0, 90)}...`
                         }
                     </span>
                     <div className="detail-cart-channell">
                         <p> بازدید : {view}</p>
-                        <p> ویدیو منتشر شده : 20</p>
+                        <div className="">
+                            {
+                                <Jalali date={createdAt} />
+                            }
+                        </div>
                     </div>
                 </div>
             </Link>

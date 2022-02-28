@@ -8,7 +8,7 @@ import { deleteCourse } from "../../redux/actions/courseAction"
 
 
 
-const CartCourse = ({ image, title, desc, date, del, id }) => {
+const CartCourse = ({ image, title, desc, date, del, id, slug }) => {
 
     const dispatch = useDispatch();
 
@@ -49,10 +49,10 @@ const CartCourse = ({ image, title, desc, date, del, id }) => {
                         ?
                         <>
                             <div className="del" onClick={() => deleteCours(id)}><i className='fas fa-trash'></i></div>
-                            <Link to={"/"}>مشاهده بیشتر</Link>
+                            <Link to={`course/${slug}`}>مشاهده بیشتر</Link>
                         </>
                         :
-                        <Link to={"/"}>مشاهده بیشتر</Link>
+                        <Link to={`course/${slug}`}>مشاهده بیشتر</Link>
                 }
                 <Jalali date={date} />
             </div>

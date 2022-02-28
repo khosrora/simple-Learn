@@ -6,6 +6,7 @@ import { getPublics } from '../../../../redux/actions/publicAction';
 import { useSelector } from 'react-redux';
 import BestCourses from '../BestCourses/BestCourses';
 import SkeltonMe from './../../Loading/SkeltonMe';
+import YouCan from './../Sections/YouCan';
 
 const Home = () => {
 
@@ -17,6 +18,7 @@ const Home = () => {
         dispatch(getPublics())
     }, [dispatch])
 
+
     return (
         <div>
             <TitleHeader />
@@ -25,12 +27,12 @@ const Home = () => {
                     ? <BestChanells />
                     : <SkeltonMe count={2} height={300} />
             }
+            <YouCan />
             {
                 publicData.topCourses
                     ? <BestCourses topCourses={publicData.topCourses} />
                     : <SkeltonMe count={2} height={100} />
             }
-
         </div>
     );
 };

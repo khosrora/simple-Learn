@@ -34,10 +34,10 @@ const channelControllerAPI = {
             await Course.courseValidate(req.body)
             // ! find and update
             await Course.findByIdAndUpdate(_id, {
-                image, slug: slug(title), title, shortDesc, content, url, category
+                image, slug: slug(title), title, shortDesc, content, url, category, permission: false
             });
             // ! send response to client
-            return res.status(200).json({ message: "آموزش با موفقیت ویرایش شد" })
+            return res.status(200).json({ message: "لطفا منتظر تایید مدیریت باشید" })
 
         } catch (err) {
             return res.status(500).json({ message: err.message })
@@ -56,6 +56,26 @@ const channelControllerAPI = {
             return res.status(500).json({ message: err.message })
         }
     },
+    getCourse: async (req, res) => {
+        try {
+            // ! get slug
+            const slug = req.params.slug;
+            // ! find channell
+            const course = await Course.findOne({ slug }).populate("image");
+            const channell = await Channell.findOne({ _id: course.channell });
+            if (!course) return res.status(400).json({ message: "آموزش مورد نظر پیدا نشد" });
+            // ! edit channell
+            course.view += 1;
+            await course.save();
+            // ! response to client
+            return res.status(200).json({
+                course,
+                channell
+            })
+        } catch (err) {
+            return res.status(500).json({ message: err.message })
+        }
+    }
 }
 
 

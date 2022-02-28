@@ -17,6 +17,10 @@ import CreateGallery from './Pages/UserPanel/CreateGallery';
 import CreateCourse from './Pages/UserPanel/CreateCourse';
 import SingleChannell from './Pages/Main/BestChanells/SingleChannell';
 import CoursesChannell from './Pages/UserPanel/CoursesChannell';
+import SingleCourse from './Pages/Main/BestCourses/SingleCourse';
+import Channells from './Pages/Main/BestChanells/Channells';
+import Courses from './Pages/Main/BestCourses/Courses';
+import CateCourse from './Shared/CateCourse';
 
 const Index = () => {
 
@@ -61,6 +65,10 @@ const Index = () => {
                     }
                     <Route exact path="/" component={Home} />
                     <Route exact path="/channell/:slug" component={SingleChannell} />
+                    <Route exact path="/course/:slug" component={SingleCourse} />
+                    <Route exact path="/channells" component={Channells} />
+                    <Route exact path="/courses" component={Courses} />
+                    <Route exact path="/cateCourse/:slug" component={CateCourse} />
                 </Layout>
             </Switch>
         </div>

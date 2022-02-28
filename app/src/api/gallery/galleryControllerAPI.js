@@ -60,7 +60,7 @@ const createGallery = async (images, id) => {
         for (let i of images) {
             const path = `${i.destination}thumb${i.filename}`
             await sharp(i.path)
-                .resize(400)
+                .resize(400, 300)
                 .toFile(
                     path
                 )

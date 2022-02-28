@@ -4,7 +4,7 @@ import { logout } from './../../../../../redux/actions/authAction';
 
 const SubMenu = ({ user, alert }) => {
 
-    const dispatch = useDispatch();    
+    const dispatch = useDispatch();
 
     return (
         <ul className='sub-menu'>
@@ -17,13 +17,13 @@ const SubMenu = ({ user, alert }) => {
                     ?
                     <li><Link onClick={() => { dispatch(logout()) }} to="#">
                         {
-                            alert.wait 
-                            ?
-                            "زود برگردی"
-                            :
-                            "خروج" 
+                            alert.wait
+                                ?
+                                "زود برگردی"
+                                :
+                                "خروج"
                         }
-                        </Link></li>
+                    </Link></li>
                     :
                     <li><Link to="/auth">ورود / ثبت نام</Link></li>
             }

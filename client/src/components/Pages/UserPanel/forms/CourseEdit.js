@@ -2,6 +2,7 @@ import { useState, useRef } from 'react'
 import JoditEditor from "jodit-react";
 import { useSelector, useDispatch } from 'react-redux';
 import { editCourse } from './../../../../redux/actions/courseAction';
+import { errorMessage } from '../../../utilities/Toastify';
 
 
 const config = {
@@ -11,7 +12,7 @@ const config = {
 const CourseEdit = ({ setEdit, onEdit }) => {
     const initial = {
         _id: onEdit._id,
-        image: onEdit.image,
+        image: "",
         title: onEdit.title,
         url: onEdit.url,
         shortDesc: onEdit.shortDesc,
@@ -36,12 +37,14 @@ const CourseEdit = ({ setEdit, onEdit }) => {
     }
 
     const dispatch = useDispatch();
-
     const handleSubmit = async e => {
         e.preventDefault();
         try {
+            if (!course.image) {
+                return errorMessage("لطفا سریال عکس را وارد کنید")
+            }
             course.content = content;
-            dispatch(editCourse(course));
+            dispatch(editCourse(course, course._id));
             setEdit(false)
         } catch (err) {
             console.log(err.message);

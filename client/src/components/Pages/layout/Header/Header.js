@@ -27,9 +27,9 @@ const Header = () => {
             {
                 location.pathname === "/" ?
                     User.token ?
-                        <div className="panel-alert">
-                            <Link to="/userpanel">از اینجا وارد پنل خود شوید</Link>
-                        </div>
+                        <Link to="/userpanel" className="panel-alert">
+                            <i class="fa-solid fa-house-chimney-user"></i>
+                        </Link>
                         :
                         null
                     :

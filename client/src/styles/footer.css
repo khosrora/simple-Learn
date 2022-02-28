@@ -1,5 +1,47 @@
 .footer {
     width: 100%;
     background-color: var(--dark);
-    margin-top: 50rem;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 3rem 0;
+}
+
+.footer .pages {
+    width: 50%;
+}
+
+.footer ul, .footer li ul li a {
+    color: var(--white) !important;
+    list-style: none;
+}
+
+
+.footer .title-pages {
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer .details>* {
+    color: var(--white);
+}
+
+@media only screen and (max-width: 600px) {
+    .footer {
+        background-color: var(--dark);
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer .pages {
+        width: 100%;
+    }
+
+    .footer .details {
+        margin-top: 3rem;
+    }
 }

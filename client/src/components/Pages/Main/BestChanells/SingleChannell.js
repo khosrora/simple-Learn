@@ -25,8 +25,6 @@ const SingleChannell = () => {
 
     const { channell, publicData } = useSelector(state => state);
 
-    console.log(channell)
-
     return (
         <div>
             {

@@ -1,4 +1,4 @@
-import { EditData, DeleteData, GLOBALTYPES } from '../actions/globalTypes';
+import { DeleteData, GLOBALTYPES } from '../actions/globalTypes';
 import { COURSE_TYPES } from './../actions/courseAction';
 
 
@@ -12,7 +12,7 @@ const publicReducer = (state = initialState, action) => {
         case COURSE_TYPES.EDIT_COURSE:
             return {
                 ...state,
-                topCourses: EditData(state.topCourses, action.payload._id, action.payload)
+                topCourses: DeleteData(state.topCourses, action.payload.id)
             }
         case COURSE_TYPES.DELETE_COURSE:
             return {

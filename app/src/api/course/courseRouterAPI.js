@@ -43,5 +43,17 @@ router.post("/editCourse", channelControllerAPI.editCourse)
  */
 router.post("/deleteCourse", channelControllerAPI.deleteCourse)
 
+// ? method ===> GET
+// ? desc ===> get course
+/**
+ * @swagger
+ * /get course:
+ *  post:
+ *    description: get course
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ */
+ router.get("/course/:slug", channelControllerAPI.getCourse)
 
 module.exports = router;

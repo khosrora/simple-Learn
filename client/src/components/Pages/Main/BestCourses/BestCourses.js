@@ -17,7 +17,7 @@ const BestCourses = ({ topCourses }) => {
     return (
         <div className='bests'>
             <div className="details-bests title-hover">
-                <Title title="پربازدید ترین آموزش ها" link="/allCourses" desc="در این وب سایت بیشترین بازدید ها از این آموزش ها بوده ... !!!" />
+                <Title title="پربازدید ترین آموزش ها" link="/courses" desc="در این وب سایت بیشترین بازدید ها از این آموزش ها بوده ... !!!" />
                 <div className="canals-section">
                     <Swiper
                         slidesPerGroup={3}
@@ -50,7 +50,7 @@ const BestCourses = ({ topCourses }) => {
                         {
                             topCourses.slice(0 , 8).map(i =>
                                 <SwiperSlide key={i._id}>
-                                    <CartCourse image={i.image.thumb} title={i.title} desc={i.shortDesc} date={i.createdAt} />
+                                    <CartCourse image={i.image.thumb} title={i.title} desc={i.shortDesc} date={i.createdAt} slug={i.slug}/>
                                 </SwiperSlide>
                             )
                         }

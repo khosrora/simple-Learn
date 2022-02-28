@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import SubCategories from './SubCategories';
 
 const Categories = () => {
 
@@ -19,15 +18,14 @@ const Categories = () => {
         <ul className='categories'>
             <div className="title-categories">
                 <p>
-                    دسته بندی های اصلی
+                    دسته بندی ها
                 </p>
             </div>
             <hr />
 
             {
                 arr.map(cate => (
-                    <li key={cate._id}  className='list-categories' ><Link to="#"> {cate.name} </Link>
-                        <SubCategories categories={Categories.categories} id={cate._id}/>
+                    <li key={cate._id} className='list-categories' ><Link to={`/cateCourse/${cate._id}`}> {cate.name} </Link>
                     </li>
                 ))
             }

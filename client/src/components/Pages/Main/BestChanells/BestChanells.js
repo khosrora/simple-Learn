@@ -20,7 +20,7 @@ const BestChanells = () => {
     return (
         <div className='bests'>
             <div className="details-bests title-hover">
-                <Title title="پربازدید ترین ها" link="/allChannells" desc="در این وب سایت بیشترین بازدید ها از این کانال ها بوده ... !!!" />
+                <Title title="پربازدید ترین ها" link="/channells" desc="در این وب سایت بیشترین بازدید ها از این کانال ها بوده ... !!!" />
                 <div className="canals-section">
                     <Swiper
                         slidesPerGroup={3}
@@ -57,7 +57,7 @@ const BestChanells = () => {
                         {
                             publicData.topChannells.slice(0, 8).map(i =>
                                 <SwiperSlide key={i._id}>
-                                    <CartChannell slug={i.slug} name={i.name} shortDesc={i.shortDesc} image={i.image ? i.image.thumb : "http://localhost:4000/uploads/images/channell/default.png"} view={i.view} />
+                                    <CartChannell slug={i.slug} name={i.name} shortDesc={i.shortDesc} image={i.image ? i.image.thumb : "http://localhost:4000/uploads/images/channell/default.png"} view={i.view} createdAt={i.createdAt} />
                                 </SwiperSlide>
                             )
                         }

@@ -23,17 +23,11 @@
     text-align: center;
     padding: .5rem;
     z-index: 3;
+    background-color: var(--dark);
+    border-radius: 4px;
 }
 
-.desc-header .back-desc-header {
-    background-image: url("./images/blue-white-shapes-background-1.png");
-    background-size: cover;
-    position: absolute;
-    top: -16rem;
-    right: 0;
-    left: 0;
-    bottom: 0;
-}
+
 
 @media only screen and (max-width: 1280px) {
     .desc-header .back-desc-header {
@@ -43,7 +37,7 @@
 }
 
 .desc-header .back-desc-header {
-    background-image: url("./images/blue-white-shapes-background-1.png");
+    background-image: url("./images/8-Easy-Ways-To-Become-A-Minimalist-1600x715.jpg");
     background-size: cover;
     position: absolute;
     top: -16rem;
@@ -53,6 +47,9 @@
 }
 
 @media only screen and (max-width: 700px) {
+    .desc-header .title .details-title {
+        width: 80%;
+    }
 
     .desc-header .title .details-title h1 {
         font-size: .9rem;
@@ -66,10 +63,6 @@
     .desc-header .title .details-title p {
         font-size: .6rem;
         text-align: justify;
-    }
-
-    .desc-header .back-desc-header {
-        top: 4rem !important;
     }
 
 }

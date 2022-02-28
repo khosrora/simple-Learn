@@ -1,13 +1,24 @@
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-const Popup = ({ text, url }) => {
+const Popup = () => {
+
+    const { User } = useSelector(state => state)
+
     return (
         <li>
             <div className='popup'>
                 <p>
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپلورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
+                   بعد از اینکه در ثبت نام کردی میتونی کانال خودت رو بسازی و آموزش های کوتاه خودت رو منتشر کنی
                 </p>
-                <Link to="#" className='btn-dark'>بیشتر بخوانید</Link>
+                {
+                    User.token
+                        ?
+                        null
+                        :
+                        <Link to="/auth" className='btn-dark'>لطفا ثبت نام کنید</Link>
+                }
+
             </div>
         </li>
     );

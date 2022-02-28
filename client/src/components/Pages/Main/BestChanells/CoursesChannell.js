@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import CartCourse from './../../../Shared/CartCourse';
+import CartCourse from '../../../Shared/CartCourse';
 
 const CoursesChannell = ({ channellId, courses, sort }) => {
 
@@ -28,7 +28,7 @@ const CoursesChannell = ({ channellId, courses, sort }) => {
                         course.length > 0 ?
                             course.sort(a => sort ? 1 : -1).map(i => {
                                 return i.title.includes(search) ?
-                                    < CartCourse key={i._id} id={i._id} image={i.image} title={i.title} desc={i.shortDesc} date={i.createdAt} />
+                                    <CartCourse key={i._id} id={i._id} image={i.image.thumb } title={i.title} desc={i.shortDesc} date={i.createdAt} />
                                     :
                                     null
                             }
